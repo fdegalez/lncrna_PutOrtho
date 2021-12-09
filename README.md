@@ -154,6 +154,7 @@ Considering that all the species doesn't have the same level of annotation, the 
 - open1 : Consider three cases as Convergent / Antisense / Divergent without any disinction
 - open2 : Only consider Antisense and Divergent cases  
 
+.
 
 
 - **INPUT** : 
