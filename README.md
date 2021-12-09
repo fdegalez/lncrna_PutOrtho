@@ -1,93 +1,217 @@
-# lncRNA_orhtologFinder
+# lncRNA_OrthoFind :
+## 
+
+This document is intended to describe the lncRNA_Orthofind workflow for identifying potential orthologous lncRNAs between two (or more) species using three methods (corresponding to the three modules) combining synteny, lncRNA-PCG pair configuration and alignment
+
+--------
+ 
+ - [Introduction]()
+ - [Input files]()
+ - [Installation]() 
+ - [lncRNA_OrthoFind module]()
+   -  [synteny]()
+   -  [configuration]()
+   -  [alignementMP]()
+ - [Citation]()	
+ - [Questions/Comments/bug]()
+
+## Introduction
+
+Currently, lncRNA_OrthoFind is composed of **3 modules**.
+The approach adopted for each module is detailed below, but briefly : 
+
+    * : 1_synteny.bash : Orthology using two PCGs themselves homologous and flanking the lncRNA of interest
+    * : 2_configuration.bash : Orthology by studying the configuration of the lncRNA of interest with its associated PCG
+    * : 3_alignementMP.bash : Mercator-Pecan alignment of the lncRNA of interest in another species
+
+Each module can be launched idnependantly or together. 
+
+## Input files
+
+Two types of files are needed to correctly used the different modules. These files are the same for each modules. 
+
+1. For each species you will need a file describing genes, transcripts, exons in a **GTF** (=GFF2) format.  
+\* *Note: Information about the format can be found [here](https://www.ensembl.org/info/website/upload/gff.html). For the moment, GFF files are not accepted but different conversion tools exist as [gffread](https://github.com/gpertea/gffread)*
+
+2. A **config.txt** files following the template provided. 
+This file is used for multiple analaysis (i.e. if the number of species is > 2) and is composed of three columns.
+    - 1. A short name (choose by user, but the common name of the species is oftenly used - e.g. "human"/"mouse"/"chicken")
+    - 2. The scientific name used by the ensemble databade (see the available list provided, e.g. "human → hsapiens"/"mouse → mmusculus"/"chicken → ggallus")
+    - 3. The **absolute path** of the associated GTF file.
+
+-------------------------
+
+## Installation and requirements
 
 
+### Requirements
 
-## Getting started
+The following software and libraries must be installed :
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+ [Perl5+](https://www.perl.org/) : tested with version 5.32.1
+ *    [Ensembl API](https://www.ensembl.org/info/docs/api/api_installation.html) : tested with e! v104
+ *    [Bioperl](http://www.bioperl.org/wiki/Main_Page) : tested with version 1.7.8
+ *    [TimeHiRes](https://metacpan.org/pod/Time::HiRes) : tested with version 1.9764
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+ R-[Rscript](https://cran.r-project.org/) : test with version 3.5.2 - 2018-12-20 - Eggshell Igloo
+R libraries : 
+ *    [BiomaRt](https://bioconductor.org/packages/release/bioc/html/biomaRt.html) v2.38.0 or more - Interface to BioMart databases (i.e Ensembl). 
+ *    [stringr](https://cloud.r-project.org/web/packages/stringr/index.html) v1.4.0 or more - Simple, Consistent Wrappers for Common String Operations. 
+ *    [stringi](https://cran.r-project.org/web/packages/stringi/index.html) v1.2.4 or more  - Character String Processing Facilities.
 
-## Add your files
+ [FEELnc](https://github.com/tderrien/FEELnc) : test with version 0.2 - 2020-11-12
+ * [FEELnc_classifier.pl](https://github.com/tderrien/FEELnc#3--feelnc_classifierpl) : Classify lncRNAs based on their genomic localization with others transcripts.
+ * [FEELnc_tpLevel2gnLevelClassifcation.R](https://github.com/tderrien/FEELnc/blob/master/scripts/FEELnc_tpLevel2gnLevelClassification.R) : Transformation of transcript-level configurations to gene-level models. 
 
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+### Installation
+
+To use this workflow just download the directory by clicking on the downloading button in the top right corner. 
+You can also clone it using the git clone command : 
+```
+git clone https://gitlab.com/f.degalez/lncrna_orhtologfinder
+```
+
+-------------------------
+
+
+## lncRNA_OrthoFind module
+
+
+### Outputs shared by all three methods
+
+For the moment, all species are analyzed by pair. That means that if you provided 3 species in the config file, 6 analysis will be performed  
+For each module, in there associated directory, a sub-directory named B_results is created and contained all the results for each analysis  
+In this sub-directory, an other sub_directory nammed "sp1_comparedTo_sp2" is created and contains all the files associated to the species-couple.  
+
+For the 
+
+
+### 1- synteny.bash
+
+The first module of the workflow allows the search for potentially orthologous lncRNAs between species by considering neighboring PCGs. Indeed, for each lncRNA, the closest PCGs (resp. down & up) are identified and their orthologs are determined for all species. Orthologous PCGs in the target species then delineate a loci that may contain lncRNAs and that can potentially be orthologous to the target species.
+
+- INPUT :
+→ The config file in the correct format (see details up)
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/f.degalez/lncrna_orhtologfinder.git
-git branch -M main
-git push -uf origin main
+# Usage:
+bash 1_generationMulti_synteny.bash [CONFIG FILE ABSOLUTE PATH]
 ```
 
-## Integrate with your tools
+- OUTPUT :
+In each sub-directory "sp1_comparedTo_sp2", there is : 
+    - For both species :  
+        - The GTF containing only the gene features (which are used for the analysis)
+        - The table containing the lncRNAs and the associated PCGs
+    - For the intersection : 
+        - The homology file for the PCGs provided by BioMart
+        - The orthology table results (orthology_strandConservation.tsv)
 
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://gitlab.com/f.degalez/lncrna_orhtologfinder/-/settings/integrations)
+Details about the orthology table : 
+The file is the result of the concatenation of three sub-tables.
+The first one provides information about the lncRNAs identified as potential orthologs in the source species and contains :
+    - the ID(s) of the lncRNAs and the IDs of the PCGs up and down
+    - the respective orientation of the lncRNAs and PCGs
+    - the relative configuration of the lncRNA with respect to the two PCGs
+    - the distance of the lncRNA from the two PCGs
+The second sub-table brings the same information for the orthologous lncRNAs of the target species.
 
-## Collaborate with your team
+The last sub-table brings the information of orthologous stricto sensu, that means: 
+    - the type of orthology (see figure XX)
+    - the type of conservation of the orientation (class and group, cf figure XX)
 
-- [ ] [Invite team members and collaborators](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
 
-## Test and Deploy
 
-Use the built-in continuous integration in GitLab.
+### 2- configuration.bash
 
-- [ ] [Get started with GitLab CI/CD](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+The second module of the workflow allows the search for potentially orthologous lncRNAs between species by considering configuration with the associated PCG (here we consider lncRNA-PCG couple). To understant how the configuration is calculated, you can look at the [FEELnc documentation](https://github.com/tderrien/FEELnc)
 
-***
+Considering that all the species doesn't have the same level of annotation, the strictness apply to the configuration association can be leveled. In ordert to do that, we proposed 5 levels of strictness (see the Document XX and the fig XX for the equivalence). Briefly : 
+• strict : Correspond to the configuration system proposed by FEELnc i.e. including the configuration at the gene and at the transcript level 
+• inter1 : Consider only the gene configuration level
+• inter2 : Consider three cases as Convergent / Antisense / Divergent and distinguish between the genic and intergenic lncRNAs
+• open1 : Consider three cases as Convergent / Antisense / Divergent without any disinction
+• open2 : Only consider Antisense and Divergent cases. 
 
-# Editing this README
+- INPUT :
+→ The config file in the correct format (see details up)
+→ The type of configuration strictness you want to apply.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://gitlab.com/-/experiment/new_project_readme_content:3c392d91ecaa6f2865eccc7f731c297f?https://www.makeareadme.com/) for this template.
+```
+# Usage:
+bash 2_generationMulti_configurationFEELnc.bash [CONFIG FILE ABSOLUTE PATH] [configNamming]
+```
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+- OUTPUT :
+In each sub-directory "sp1_comparedTo_sp2", there is : 
+    - For both species :  
+        - The table provided by FEELnc at the gene level and containing the configuration for all the lncRNA associated to their PCG.
+    - For the intersection : 
+        - The homology file for the PCGs provided by BioMart
+        - The orthology table results (lncConfigurationHomology_concatenated.tsv)
 
-## Name
-Choose a self-explaining name for your project.
+Details about the orthology table : 
+The file is the result of the concatenation of three sub-tables.
+The first one provides information about the lncRNAs identified as potential orthologs in the source species and contains :
+    - the ID(s) of the lncRNAs and the ID of the PCG
+    - the configuration of the lncRNAs and PCG according to the level of strictness
+    - the class of the lncRNAs (see the FEELnc documentation for more information)
+    - the distance of the lncRNA from the PCG
+The second sub-table brings the same information for the orthologous lncRNAs of the target species.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+The last sub-table brings the information of orthologous stricto sensu, that means: 
+    - the type of orthology (see figure XX)
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### 3- alignementMP.bash
+The third module of the workflow considers the totality of the lncRNAs of the source species and attempts to align them using the Mercator-Pecan algorithm to the target species. For this purpose, the Compara database of ensembl is used. 
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+In some cases, the alignment can be done in several more or less separate blocks. Depending on the level of rigor desired, the maximum distance accepted between these blocks can be adjusted. In a classical way, we use a distance of 500bp. However, so that alignments divided into several blocks are not considered, it is possible to consider a distance of 0
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+- INPUT :
+```
+# Usage:
+#bash 3_generationMulti_alignementMP.bash [CONFIG FILE ABSOLUTE PATH] [sizeBlockAuthorized]
+```
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+- OUTPUT :
+In each sub-directory "sp1_comparedTo_sp2", there is : 
+    - For the source species : 
+        - The list of the lncRNA id used
+        - A directory containing the alignment results for all the lncRNAs (1 file per alignement / open it only if it's necessary)
+    - For the target species : 
+        - The GTF containing only the gene features
+    - For both species : 
+        - The matching table results (sp1_alignedTo_sp2.tsv)
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+The matching table contains :
+    - the ID of the lncRNAs
+    - An indication of matching (0 = No match / 1 = Match / -1 = Matching but in several blocks with a gapped larger than expected)
+    - the gnId of the features which are mathcing in the target specie
+    - the corresponding biotype of these features
+    - An indication of the presence of at least one lncRNA in the matching features.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+-------------------------
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+-------------------------
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+## Authors
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+## Versions
 
-## License
-For open source projects, say how it is licensed.
+Go to [lncRNA_Orthofind releases]()
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Citation
+
+## Comment - Questions - Bugs
+
+Use the [Github Issues link]().
+
+List of features that will (maybe) be added :
+• -- help / for each module
+• GFF conversion ? 
+• Auto-isntallation of packages in R
+• Biomart and other update ensembl
+
+## Acknowledgments
 
