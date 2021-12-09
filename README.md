@@ -46,20 +46,20 @@ This file is used for multiple analaysis (i.e. if the number of species is > 2) 
 
 The following software and libraries must be installed :
 
-- [Perl5+](https://www.perl.org/) : tested with version 5.32.1  
-    - [Ensembl API](https://www.ensembl.org/info/docs/api/api_installation.html) : tested with e! v104
-    - [Bioperl](http://www.bioperl.org/wiki/Main_Page) : tested with version 1.7.8
-    - [TimeHiRes](https://metacpan.org/pod/Time::HiRes) : tested with version 1.9764  
+- [Perl5+](https://www.perl.org/) : tested with version 5.32.1
+    - [Ensembl API](https://www.ensembl.org/info/docs/api/api_installation.html) : tested with e! v104  
+    - [Bioperl](http://www.bioperl.org/wiki/Main_Page) : tested with version 1.7.8  
+    - [TimeHiRes](https://metacpan.org/pod/Time::HiRes) : tested with version 1.9764      
 
-\/n
-
+\-
 
 - [R](https://cran.r-project.org/) : test with version 3.5.2 - 2018-12-20 - Eggshell Igloo
-R libraries : 
-    - [BiomaRt](https://bioconductor.org/packages/release/bioc/html/biomaRt.html) v2.38.0 or more - Interface to BioMart databases (i.e Ensembl). 
+    R libraries : 
+	- [BiomaRt](https://bioconductor.org/packages/release/bioc/html/biomaRt.html) v2.38.0 or more - Interface to BioMart databases (i.e Ensembl). 
     - [stringr](https://cloud.r-project.org/web/packages/stringr/index.html) v1.4.0 or more - Simple, Consistent Wrappers for Common String Operations. 
     - [stringi](https://cran.r-project.org/web/packages/stringi/index.html) v1.2.4 or more  - Character String Processing Facilities.  
 
+\- 
 
 - [FEELnc](https://github.com/tderrien/FEELnc) : test with version 0.2 - 2020-11-12
     - [FEELnc_classifier.pl](https://github.com/tderrien/FEELnc#3--feelnc_classifierpl) : Classify lncRNAs based on their genomic localization with others transcripts.
@@ -78,16 +78,16 @@ git clone https://gitlab.com/f.degalez/lncrna_orhtologfinder
 ## lncRNA_OrthoFind modules
 
 
-### Outputs shared by all three methods
+### Outputs shared by all three methods  
 
 For the moment, all species are analyzed by pair. That means that if you provided 3 species in the config file, 6 analysis will be performed  
 For each module, in there associated directory, a sub-directory named B_results is created and contained all the results for each analysis  
 In this sub-directory, an other sub_directory nammed "sp1_comparedTo_sp2" is created and contains all the files associated to the species-couple.  
 
 
-### Outputs shared by the first two methods
 
-Considering the two first methods, different cases of orthology can be identified (see Fig X) as : 
+### Outputs shared by the first two methods  
+Considering the two first methods, different cases of orthology can be identified (see Fig X) as :
 - **one_to_zero** : the lncRNA (1) from the source genome do not have any (0) syntenic equivalent in the target genome
 - **many_to_zero** : multiple lncRNAs (N) from the source genome do not have any (0) syntenic equivalent in the target genome
 - **one_to_one** : the lncRNA (1) from the source genome have a unique (1) syntenic lncRNA equivalent in the target genome
@@ -110,20 +110,20 @@ bash 1_generationMulti_synteny.bash [CONFIG FILE ABSOLUTE PATH]
 
 - **OUTPUT** :  
 In each sub-directory "sp1_comparedTo_sp2", there is : 
-    - For both species :  
+	- For both species :  
         - The GTF containing only the gene features (which are used for the analysis)
         - The table containing the lncRNAs and the associated PCGs
-    - For the intersection : 
+	- For the intersection : 
         - The homology file for the PCGs provided by BioMart
         - The orthology table results (orthology_strandConservation.tsv)
 
-Details about the orthology table :  
+<ins>Details about the orthology table :</ins>  
 The file is the result of the concatenation of three sub-tables.  
-The first one provides information about the lncRNAs identified as potential orthologs in the source species and contains :  
-- the ID(s) of the lncRNAs and the IDs of the PCGs up and down
-- the respective orientation of the lncRNAs and PCGs
-- the relative configuration of the lncRNA with respect to the two PCGs
-- the distance of the lncRNA from the two PCGs
+The first one provides information about the lncRNAs identified as potential orthologs in the source species and contains: 
+- the ID(s) of the lncRNAs and the IDs of the PCGs up and down  
+- the respective orientation of the lncRNAs and PCGs  
+- the relative configuration of the lncRNA with respect to the two PCGs  
+- the distance of the lncRNA from the two PCGs  
 
 
 The second sub-table brings the same information for the orthologous lncRNAs of the target species.   
@@ -164,7 +164,7 @@ In each sub-directory "sp1_comparedTo_sp2", there is :
 
 
 
-Details about the orthology table : 
+<ins>Details about the orthology table :</ins> 
 The file is the result of the concatenation of three sub-tables.
 The first one provides information about the lncRNAs identified as potential orthologs in the source species and contains :
     - the ID(s) of the lncRNAs and the ID of the PCG
@@ -198,8 +198,8 @@ In each sub-directory "sp1_comparedTo_sp2", there is :
     - For both species : 
         - The matching table results (sp1_alignedTo_sp2.tsv)
 
-The matching table contains :
-    - the ID of the lncRNAs
+<ins>The matching table contains :</ins>  
+- the ID of the lncRNAs
     - An indication of matching (0 = No match / 1 = Match / -1 = Matching but in several blocks with a gapped larger than expected)
     - the gnId of the features which are mathcing in the target specie
     - the corresponding biotype of these features
