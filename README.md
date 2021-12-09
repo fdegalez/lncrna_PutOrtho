@@ -96,9 +96,15 @@ Considering the two first methods, different cases of orthology can be identifie
 - **one_to_many** : the lncRNA (1) from the source genome have mulitple (N) syntenic lncRNA equivalent in the target genome
 
 
+![image]()
+
+
+
 ### 1- synteny.bash
 
 The first module of the workflow allows the search for potentially orthologous lncRNAs between species by considering neighboring PCGs. Indeed, for each lncRNA, the closest PCGs (resp. down & up) are identified and their orthologs are determined for all species. Orthologous PCGs in the target species then delineate a loci that may contain lncRNAs and that can potentially be orthologous to the target species.
+
+![image]()
 
 - **INPUT** :  
     - The config file in the correct format (see the template provided)
@@ -136,6 +142,10 @@ The **last sub-table** brings the information of orthologous stricto sensu, that
 ### 2- configuration.bash
 
 The second module of the workflow allows the search for potentially orthologous lncRNAs between species by considering configuration with the associated PCG (here we consider lncRNA-PCG couple). To understant how the configuration is calculated, you can look at the [FEELnc documentation](https://github.com/tderrien/FEELnc).  
+
+
+![image]()
+
 
 Considering that all the species doesn't have the same level of annotation, the strictness apply to the configuration association can be leveled. In order to do that, we proposed 5 levels of strictness (see the FEELnc_configEquivalence.xlsx file and the fig XX for the equivalence). Briefly : 
 - strict : Correspond to the configuration system proposed by FEELnc i.e. including the configuration at the gene and at the transcript level
@@ -176,12 +186,16 @@ The **first sub-table** provides information about the lncRNAs identified as pot
 The second sub-table brings the same information for the orthologous lncRNAs of the target species.
 
 The **last sub-table** brings the information of orthologous stricto sensu, that means: 
-    - the type of orthology (see figure XX)
+- the type of orthology (see figure XX)
 
 ### 3- alignementMP.bash
 The third module of the workflow considers the totality of the lncRNAs of the source species and attempts to align them using the Mercator-Pecan algorithm to the target species. For this purpose, the Compara database of ensembl is used. 
 
 In some cases, the alignment can be done in several more or less separate blocks. Depending on the level of rigor desired, the maximum distance accepted between these blocks can be adjusted. In a classical way, we use a distance of 500bp. However, so that alignments divided into several blocks are not considered, it is possible to consider a distance of 0
+
+
+![image]()
+
 
 - **INPUT** :  
     - The config file in the correct format (see the template provided)
