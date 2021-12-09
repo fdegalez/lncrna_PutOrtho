@@ -96,7 +96,7 @@ Considering the two first methods, different cases of orthology can be identifie
 - **one_to_many** : the lncRNA (1) from the source genome have mulitple (N) syntenic lncRNA equivalent in the target genome
 
 
-![image](https://gitlab.com/f.degalez/lncrna_orhtologfinder/-/blob/main/0_files_and_templates/orthologyCases.png)
+![image](./0_files_and_templates/orthologyCases.png)
 
 
 
@@ -104,7 +104,7 @@ Considering the two first methods, different cases of orthology can be identifie
 
 The first module of the workflow allows the search for potentially orthologous lncRNAs between species by considering neighboring PCGs. Indeed, for each lncRNA, the closest PCGs (resp. down & up) are identified and their orthologs are determined for all species. Orthologous PCGs in the target species then delineate a loci that may contain lncRNAs and that can potentially be orthologous to the target species.
 
-![image](https://gitlab.com/f.degalez/lncrna_orhtologfinder/-/blob/main/0_files_and_templates/method1.png)
+![image](./0_files_and_templates/method1.png)
 
 - **INPUT** :  
     - The config file in the correct format (see the template provided)
@@ -144,7 +144,7 @@ The **last sub-table** brings the information of orthologous stricto sensu, that
 The second module of the workflow allows the search for potentially orthologous lncRNAs between species by considering configuration with the associated PCG (here we consider lncRNA-PCG couple). To understant how the configuration is calculated, you can look at the [FEELnc documentation](https://github.com/tderrien/FEELnc).  
 
 
-![image](https://gitlab.com/f.degalez/lncrna_orhtologfinder/-/blob/main/0_files_and_templates/method2.png)
+![image](./0_files_and_templates/method2.png)
 
 
 Considering that all the species doesn't have the same level of annotation, the strictness apply to the configuration association can be leveled. In order to do that, we proposed 5 levels of strictness (see the FEELnc_configEquivalence.xlsx file and the fig XX for the equivalence). Briefly : 
@@ -194,7 +194,7 @@ The third module of the workflow considers the totality of the lncRNAs of the so
 In some cases, the alignment can be done in several more or less separate blocks. Depending on the level of rigor desired, the maximum distance accepted between these blocks can be adjusted. In a classical way, we use a distance of 500bp. However, so that alignments divided into several blocks are not considered, it is possible to consider a distance of 0
 
 
-![image](https://gitlab.com/f.degalez/lncrna_orhtologfinder/-/blob/main/0_files_and_templates/method3.png)
+![image](./0_files_and_templates/method3.png)
 
 
 - **INPUT** :  
