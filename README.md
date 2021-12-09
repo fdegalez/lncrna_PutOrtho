@@ -119,16 +119,16 @@ In each sub-directory "sp1_comparedTo_sp2", there is :
 
 <ins>Details about the orthology table :</ins>  
 The file is the result of the concatenation of three sub-tables.  
-The first one provides information about the lncRNAs identified as potential orthologs in the source species and contains: 
+The **first sub-table** provides information about the lncRNAs identified as potential orthologs in the source species and contains: 
 - the ID(s) of the lncRNAs and the IDs of the PCGs up and down  
 - the respective orientation of the lncRNAs and PCGs  
 - the relative configuration of the lncRNA with respect to the two PCGs  
 - the distance of the lncRNA from the two PCGs  
 
 
-The second sub-table brings the same information for the orthologous lncRNAs of the target species.   
+The **second sub-table** brings the same information for the orthologous lncRNAs of the target species.   
 
-The last sub-table brings the information of orthologous stricto sensu, that means: 
+The **last sub-table** brings the information of orthologous stricto sensu, that means: 
 - the type of orthology (see figure XX)
 - the type of conservation of the orientation (class and group, cf figure XX)
 
@@ -145,6 +145,7 @@ Considering that all the species doesn't have the same level of annotation, the 
 - open2 : Only consider Antisense and Divergent cases  
 
 
+
 - **INPUT** : 
     - The config file in the correct format (see the template provided)
     - The type of configuration strictness you want to apply.
@@ -153,6 +154,7 @@ Considering that all the species doesn't have the same level of annotation, the 
 # Usage:
 bash 2_generationMulti_configurationFEELnc.bash [CONFIG FILE ABSOLUTE PATH] [configNamming]
 ```
+
 
 - **OUTPUT** :  
 In each sub-directory "sp1_comparedTo_sp2", there is : 
@@ -166,14 +168,14 @@ In each sub-directory "sp1_comparedTo_sp2", there is :
 
 <ins>Details about the orthology table :</ins> 
 The file is the result of the concatenation of three sub-tables.
-The first one provides information about the lncRNAs identified as potential orthologs in the source species and contains :
-    - the ID(s) of the lncRNAs and the ID of the PCG
-    - the configuration of the lncRNAs and PCG according to the level of strictness
-    - the class of the lncRNAs (see the FEELnc documentation for more information)
-    - the distance of the lncRNA from the PCG
+The **first sub-table** provides information about the lncRNAs identified as potential orthologs in the source species and contains :
+- the ID(s) of the lncRNAs and the ID of the PCG
+- the configuration of the lncRNAs and PCG according to the level of strictness
+- the class of the lncRNAs (see the FEELnc documentation for more information)
+- the distance of the lncRNA from the PCG
 The second sub-table brings the same information for the orthologous lncRNAs of the target species.
 
-The last sub-table brings the information of orthologous stricto sensu, that means: 
+The **last sub-table** brings the information of orthologous stricto sensu, that means: 
     - the type of orthology (see figure XX)
 
 ### 3- alignementMP.bash
@@ -200,10 +202,10 @@ In each sub-directory "sp1_comparedTo_sp2", there is :
 
 <ins>The matching table contains :</ins>  
 - the ID of the lncRNAs
-    - An indication of matching (0 = No match / 1 = Match / -1 = Matching but in several blocks with a gapped larger than expected)
-    - the gnId of the features which are mathcing in the target specie
-    - the corresponding biotype of these features
-    - An indication of the presence of at least one lncRNA in the matching features.
+- An indication of matching (0 = No match / 1 = Match / -1 = Matching but in several blocks with a gapped larger than expected)
+- the gnId of the features which are mathcing in the target specie
+- the corresponding biotype of these features
+- An indication of the presence of at least one lncRNA in the matching features.
 
 
 
