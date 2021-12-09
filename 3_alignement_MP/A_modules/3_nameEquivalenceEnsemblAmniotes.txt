@@ -1,0 +1,63 @@
+Algerian mouse 	Mus spretus strain SPRET/EiJ		
+Alpine marmot 	Marmota marmota marmota		
+Arabian camel 	Camelus dromedarius		
+Argentine black and white tegu 	Salvator merianae		
+Australian saltwater crocodile 	Crocodylus porosus		
+Beluga whale 	Delphinapterus leucas		
+Blue whale 	Balaenoptera musculus		
+Bonobo 	Pan paniscus		
+Cat 	Felis catus		
+Chacoan peccary 	Catagonus wagneri		
+Chicken 	Gallus gallus		
+Chimpanzee 	Pan troglodytes		
+Chinese hamster CHOK1GS 	Cricetulus griseus		
+Common canary 	Serinus canaria		
+Common wall lizard 	Podarcis muralis		
+Cow 	Bos taurus		
+Crab-eating macaque 	Macaca fascicularis		
+Dingo 	Canis lupus dingo		
+Dog 	Canis lupus familiaris reference breed		
+Domestic yak 	Bos grunniens		
+Duck 	Anas platyrhynchos platyrhynchos		
+Eastern brown snake 	Pseudonaja textilis		
+Elephant 	Loxodonta africana		
+Eurasian red squirrel 	Sciurus vulgaris		
+Gibbon 	Nomascus leucogenys		
+Goat 	Capra hircus reference breed		
+Golden eagle 	Aquila chrysaetos chrysaetos		
+Goodes thornscrub tortoise 	Gopherus evgoodei		
+Gorilla 	Gorilla gorilla gorilla		
+Great Tit 	Parus major		
+Greater horseshoe bat 	Rhinolophus ferrumequinum		
+Guinea Pig 	Cavia porcellus		
+Horse 	Equus caballus		
+Human 	Homo sapiens		
+Hybrid - Bos Indicus 	Bos indicus x Bos taurus		
+Indian cobra 	Naja naja		
+Japanese quail 	Coturnix japonica		
+Kakapo 	Strigops habroptila		
+Leopard 	Panthera pardus		
+Lion 	Panthera leo		
+Macaque 	Macaca mulatta		
+Marmoset 	Callithrix jacchus		
+Mouse 	Mus musculus reference (CL57BL6) strain		
+Mouse Lemur 	Microcebus murinus		
+Narwhal 	Monodon monoceros		
+Northern American deer mouse 	Peromyscus maniculatus bairdii		
+Olive baboon 	Papio anubis		
+Opossum 	Monodelphis domestica		
+Orangutan 	Pongo abelii		
+Pig 	Sus scrofa reference breed		
+Platypus 	Ornithorhynchus anatinus		
+Prairie vole 	Microtus ochrogaster		
+Rabbit 	Oryctolagus cuniculus		
+Rat 	Rattus norvegicus		
+Ryukyu mouse 	Mus caroli strain CAROLI_EIJ		
+Sheep 	Ovis aries reference breed		
+Shrew mouse 	Mus pahari strain PAHARI_EIJ		
+Sperm whale 	Physeter catodon		
+Three-toed box turtle 	Terrapene carolina triunguis		
+Vaquita 	Phocoena sinus		
+Vervet-AGM 	Chlorocebus sabaeus		
+Yarkand deer 	Cervus hanglu yarkandensis		
+Zebra finch 	Taeniopygia guttata		

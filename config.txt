@@ -1,0 +1,10 @@
+#shortName	ensemblName	pathToGTF
+human	hsapiens	/home/fabien/References/0_Ensembl_allGTF_310dir/homo_sapiens/Homo_sapiens.GRCh38.104.gtf
+mouse	mmusculus	/home/fabien/References/0_Ensembl_allGTF_310dir/mus_musculus/Mus_musculus.GRCm39.104.gtf
+dog	clfamiliaris	/home/fabien/References/0_Ensembl_allGTF_310dir/canis_lupus_familiaris/Canis_lupus_familiaris.CanFam3.1.104.gtf
+cow	btaurus	/home/fabien/References/0_Ensembl_allGTF_310dir/bos_taurus/Bos_taurus.ARS-UCD1.2.104.gtf
+horse	ecaballus	/home/fabien/References/0_Ensembl_allGTF_310dir/equus_caballus/Equus_caballus.EquCab3.0.104.gtf
+pig	sscrofa	/home/fabien/References/0_Ensembl_allGTF_310dir/sus_scrofa/Sus_scrofa.Sscrofa11.1.104.gtf
+goat	chircus	/home/fabien/References/0_Ensembl_allGTF_310dir/capra_hircus/Capra_hircus.ARS1.104.gtf
+chickenR	ggallus	/home/fabien/References/GalGal6/1_LNCextendedEns101_withQuotes.gtf
+zebrafish	drerio	/home/fabien/References/0_Ensembl_allGTF_310dir/danio_rerio/Danio_rerio.GRCz11.104.gtf
