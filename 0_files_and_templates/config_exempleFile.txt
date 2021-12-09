@@ -1,0 +1,4 @@
+#shortName	ensemblName	pathToGTF
+human	hsapiens	/PATH/TO/GTF/Homo_sapiens.GRCh38.104.gtf
+mouse	mmusculus	/PATH/TO/GTF/Mus_musculus.GRCm39.104.gtf
+dog	clfamiliaris	/PATH/TO/GTF/Canis_lupus_familiaris.CanFam3.1.104.gtf
