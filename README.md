@@ -134,7 +134,7 @@ The file is the result of the concatenation of three sub-tables.
 The **first sub-table** provides information about the lncRNAs identified as potential orthologs in the source species and contains: 
 - the ID(s) of the lncRNAs and the IDs of the PCGs up and down  
 - the respective orientation of the lncRNAs and PCGs  
-- the relative configuration of the lncRNA with respect to the two PCGs  (see XX file)
+- the relative configuration of the lncRNA with respect to the two PCGs  (see ""method1_relativeConfigurationfile.png"")
 - the distance of the lncRNA from the two PCGs  
 
 
