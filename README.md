@@ -215,7 +215,8 @@ In each sub-directory "sp1_comparedTo_sp2", there is :
     - For both species : 
         - The matching table results (sp1_alignedTo_sp2.tsv)
 
-<ins>The matching table contains :</ins>  
+
+<ins>The matching table contains :  </ins>  
 - the ID of the lncRNAs
 - An indication of matching (0 = No match / 1 = Match / -1 = Matching but in several blocks with a gapped larger than expected)
 - the gnId of the features which are mathcing in the target specie
@@ -226,18 +227,22 @@ In each sub-directory "sp1_comparedTo_sp2", there is :
 
 ## Authors
 
+- DEGALEZ Fabien
+- LAGARRIGUE Sandrine
+
 ## Versions
+
+- Current version : 0.1
+- Old versions : unavailable
 
 ## Citation
 
+Unavailable
+
 ## Comment - Questions - Bugs
 
-List of features that will (maybe) be added :
-• -- help / for each module
-• GFF conversion ? 
-• Auto-isntallation of packages in R
-• Biomart and other update ensembl
-• Option for each module ? 
-
-## Acknowledgments
-
+List of features that will (maybe) be added/modified :
+- Module with options : -- help for each module and other
+- Auto conversion of GFF in GTF
+- Auto-installation of packages in R
+- Auto-update of BioMart + ensembl API
