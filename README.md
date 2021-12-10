@@ -142,7 +142,7 @@ The **second sub-table** brings the same information for the orthologous lncRNAs
 
 The **last sub-table** brings the information of orthologous stricto sensu, that means: 
 - the type of orthology (see figure "Outputs shared by the first two methods")
-- the type of conservation of the orientation (class and group, see XX file)
+- the type of conservation of the orientation (class and group, see method1_strandManagement.png)
 
 
 ### 2- configuration.bash
