@@ -78,7 +78,7 @@ git clone https://gitlab.com/f.degalez/lncrna_orhtologfinder
 ## lncRNA_OrthoFind modules
 
 
-### Outputs shared by all three methods  
+### Shared outputs by all three methods  
 
 For the moment, all species are analyzed by pair. That means that if you provided 3 species in the config file, 6 analysis will be performed.  
 For each module, in their associated directory, a sub-directory named **B_results** is created and contained all the results for each analysis.  
@@ -86,7 +86,7 @@ In this sub-directory, an other sub_directory nammed **"sp1_comparedTo_sp2"** is
 
 
 
-### Outputs shared by the first two methods  
+### Shared outputs by the first two methods  
 Considering the two first methods, different cases of orthology can be identified as :
 - **one_to_zero** : the lncRNA (1) from the source genome do not have any (0) syntenic equivalent in the target genome
 - **many_to_zero** : multiple lncRNAs (N) from the source genome do not have any (0) syntenic equivalent in the target genome
@@ -102,7 +102,7 @@ Considering the two first methods, different cases of orthology can be identifie
 </div>
 
 
-### 1- synteny.bash
+### 1) First method : Synteny
 
 The first module of the workflow allows the search for potentially orthologous lncRNAs between species by considering neighboring PCGs. Indeed, for each lncRNA, the closest PCGs (_resp._ downstream & upstream) are identified and their orthologs are determined for all species. Orthologous PCGs in the target species then delineate a loci that may contain lncRNAs and that can potentially be orthologous considering the target species.
 
@@ -119,6 +119,10 @@ The first module of the workflow allows the search for potentially orthologous l
 # Usage:
 bash 1_generationMulti_synteny.bash [CONFIG FILE ABSOLUTE PATH]
 ```
+
+N.B (1) : In order to detect the genes' biotypes, two regular expressions are used. _"protein_coding"_ for PCGs and _"antisense|lincRNA|lncRNA|sense_exonic|sense_intronic"_ for lncRNAs. If you use a custom GTF file or want to add a specific biotype, it is possible to modify these regular expressions by changing the lines at the beginning of the 2_creationTable.R module located in 1_synteny/A_modules/ (This option will be added in a future update)
+
+N.B (2) : Sometimes a message "Ensembl site unresponsive" can appear. This is independent of the program and indicates that the Ensemble database that is used cannot be accessed. It is possible to use the mirror site by changing this parameter in the "0_creationBiomartFile.R" module. 
 
 - **OUTPUT** :  
 In each sub-directory "sp1_comparedTo_sp2", there is : 
@@ -140,14 +144,14 @@ The **first sub-table** provides information about the lncRNAs identified as pot
 
 The **second sub-table** brings the same information for the orthologous lncRNAs of the target species.   
 
-The **last sub-table** brings the information of orthologous stricto sensu, that means: 
-- the type of orthology (see figure "Outputs shared by the first two methods")
+The **last sub-table** brings the information of orthology stricto sensu, that means: 
+- the type of orthology (see figure "Shared outputs by the first two methods  ")
 - the type of conservation of the orientation (class and group, see method1_strandManagement.png)
+ 
 
+### 2) Second method : Configuration
 
-### 2- configuration.bash
-
-The second module of the workflow allows the search for potentially orthologous lncRNAs between species by considering configuration with the associated PCG (here we consider lncRNA-PCG couple). To understant how the configuration is calculated, you can look at the [FEELnc documentation](https://github.com/tderrien/FEELnc).  
+The second module of the workflow allows the search for potentially orthologous lncRNAs between species by considering configuration with the associated PCG (here we consider lncRNA-PCG couple). To understand how the configuration is calculated, you can look at the [FEELnc documentation](https://github.com/tderrien/FEELnc).  
 
 <div align="center">
 
@@ -162,17 +166,19 @@ Considering that all the species doesn't have the same level of annotation, the 
 - **open1**: Consider three cases as convergent / antisense / divergent without any disinction
 - **open2**: Only consider antisense and divergent cases  
 
-.
-
+\\
 
 - **INPUT** : 
     - The config file in the correct format (see the file **"config_exempleFile.txt"**)
-    - The type of configuration strictness you want to apply.
+    - The type of configuration strictness you want to apply. (see the file **"FEELnc_configEquivalence.xlsx"**)
 
 ```
 # Usage:
 bash 2_generationMulti_configurationFEELnc.bash [CONFIG FILE ABSOLUTE PATH] [configNamming]
 ```
+N.B (1) : In order to detect the genes' biotypes, two regular expressions are used. _"protein_coding"_ for PCGs and _"antisense|lincRNA|lncRNA|sense_exonic|sense_intronic"_ for lncRNAs. If you use a custom GTF file or want to add a specific biotype, it is possible to modify these regular expressions by changing the lines at the beginning of the 0_FEELnc_classifier_adapted.bash module located in 2_configuration_FEELnc/A_modules/ (This option will be added in a future update)
+
+N.B (2) : Depending on the accuracy of the genome annotation, FEELnc may take more or less time to complete. A part of the program allows not to repeat this operation for the different crosses. However, in order to save more time, if the FEELnc files have already been generated (in an annex analysis for example) it is possible to use them by placing them in the 2_configuration_FEELnc/B_results/feelNC_data folder (can be created if it's not already the case) and naming them as {shortName}_lncConfiguration_feelncclassifier.tsv
 
 
 - **OUTPUT** :  
@@ -197,8 +203,9 @@ The second sub-table brings the same information for the orthologous lncRNAs of 
 The **last sub-table** brings the information of orthologous stricto sensu, that means: 
 - the type of orthology (see figure "Outputs shared by the first two methods")
 
-### 3- alignementMP.bash
-The third module of the workflow considers the totality of the lncRNAs of the source species and attempts to align them using the Mercator-Pecan algorithm to the target species. For this purpose, the Compara database of ensembl is used. 
+### 3) Third method : Alignment (MP)
+The third module of the workflow considers the totality of the lncRNAs of the source species and attempts to align them using the Mercator-Pecan algorithm to the target species. 
+→ For the moment (integration of the Mercator-Pecan alignment algorithm will be done) the Compara database of Ensembl is used. Therefore, the lncRNA which will be aligned are thus wich are extracted from the GTF from Ensembl. It's impossible for the moment to align lncRNA from a custom GTF. One alternative is to watch if an other target species with an annotation from Ensembl match your custom GTF (i.e. in "target" species)
 
 In some cases, the alignment can be done in several more or less separate blocks. Depending on the level of rigor desired, the maximum distance accepted between these blocks can be adjusted. In a classical way, we use a distance of 500bp. However, so that alignments divided into several blocks are not considered, it is possible to consider a distance of 0
 
@@ -214,6 +221,10 @@ In some cases, the alignment can be done in several more or less separate blocks
 # Usage:
 #bash 3_generationMulti_alignementMP.bash [CONFIG FILE ABSOLUTE PATH] [sizeBlockAuthorized]
 ```
+
+N.B (1) : In order to detect the genes' biotypes, two regular expressions are used. _"protein_coding"_ for PCGs and _"antisense|lincRNA|lncRNA|sense_exonic|sense_intronic"_ for lncRNAs. If you use a custom GTF file or want to add a specific biotype, it is possible to modify these regular expressions by changing the lines at the beginning of the 1_extraction_listLNC.bash module located in 3_alignement_MP/A_modules/ (This option will be added in a future update)
+
+N.B (2) : Depending on the accuracy of the genome annotation, the extraction from the Compara DB may take more or less time to complete. A part of the program allows not to repeat this operation for the different crosses. However, in order to save more time, if the files have already been generated (in an annex analysis for example) it is possible to use them by placing them in the 3_alignement_MP/B_results/Compara_data folder (can be created if it's not already the case) and naming them as {shortName}_alignement_MP_63amniotes
 
 - **OUTPUT** :  
 In each sub-directory "sp1_comparedTo_sp2", there is : 
@@ -234,7 +245,6 @@ In each sub-directory "sp1_comparedTo_sp2", there is :
 - An indication of the presence of at least one lncRNA in the matching features.
 
 
-
 ## Authors
 
 - DEGALEZ Fabien
@@ -242,7 +252,7 @@ In each sub-directory "sp1_comparedTo_sp2", there is :
 
 ## Versions
 
-- Current version : 0.1
+- Current version : 0.2
 - Old versions : unavailable
 
 ## Citation
@@ -256,3 +266,5 @@ List of features that will (maybe) be added/modified :
 - Auto conversion of GFF in GTF
 - Auto-installation of packages in R
 - Auto-update of BioMart + ensembl API
+- Changing RegEx
+- Mercator Pecan Alignement direct integration

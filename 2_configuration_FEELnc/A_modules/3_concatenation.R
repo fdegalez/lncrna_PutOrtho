@@ -8,17 +8,13 @@ collaspingInfoCol <- function(x){
     return(paste0(x, collapse = ";"))
 }
 
-## Improting data
-
-name1<- "human"
-name2 <- "mouse"
-
+## Importing data
 args <- commandArgs(trailingOnly = T)
 name1 <- args[1]
 name2 <- args[2]
 
 cat("------------------------------------ \n")
-cat(paste("#", name1, "vs.", name2, "concatenation", "#\n"))
+cat(paste("#", name1, "-", name2, "concatenation", "#\n"))
 cat("------------------------------------ \n")
 dta <- read.delim(paste0(name1, "_", name2, "_lncConfigurationHomology.tsv"), header = T, stringsAsFactors = F)
 

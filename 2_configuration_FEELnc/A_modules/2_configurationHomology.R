@@ -47,7 +47,7 @@ shorterConf_open2 <- function(x){
 # Homology file
 if ((ensName1 != ensName2)) {
     cat("------------------------------------ \n")
-    cat(paste("#", name1, "vs.", name2, " configuration homology", "#\n"))
+    cat(paste("#", name1, "-", name2, "configuration homology", "#\n"))
     cat("------------------------------------ \n")
     
     ### Treatment of homology file (START)

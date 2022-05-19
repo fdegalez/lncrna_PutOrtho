@@ -1,25 +1,33 @@
 #!/bin/bash
 
-### Exemple of command
-### 1_synteny.bash "human" "mouse" "hsapiens" "mmusculus" "/home/fabien/References/Human_GRCh38.p13/Ensembl/Homo_sapiens.GRCh38.101.gtf" "/home/fabien/References/Mouse_GRCm38.p6/Ensembl/Mus_musculus.GRCm38.102.gtf"
- 
+######################################################################################
+## Example : 
+# 1_synteny.bash \
+# "human" \
+# "mouse" \
+# "hsapiens" \
+# "mmusculus" \
+# "Ensembl/Homo_sapiens.GRCh38.101.gtf" \
+# "Ensembl/Mus_musculus.GRCm38.102.gtf"
 
-## To work 
-
+## To debug (if needed) :
 #shortNameSource="human"
 #shortNameTarget="mouse"
 #ensemblNameSource="hsapiens"
 #ensemblNameTarget="mmusculus"
-#GTFsource="/home/fabien/References/Human_GRCh38.p13/Ensembl/Homo_sapiens.GRCh38.101.gtf"
-#GTFtarget="/home/fabien/References/Mouse_GRCm38.p6/Ensembl/Mus_musculus.GRCm38.102.gtf"
+#GTFsource="Ensembl/Homo_sapiens.GRCh38.101.gtf"
+#GTFtarget="Ensembl/Mus_musculus.GRCm38.102.gtf"
+######################################################################################
 
-##
+## Variables
 shortNameSource=$1
 shortNameTarget=$2
 ensemblNameSource=$3
 ensemblNameTarget=$4
 GTFsource=$5
 GTFtarget=$6
+
+######################################################################################
 
 ## Directory Creation
 
@@ -28,7 +36,6 @@ cd "${shortNameSource}_comparedTo_${shortNameTarget}"
 
 ## Creation of the homology file between the two species 
 
-echo $ensemblNameSource $ensemblNameTarget $shortNameSource $shortNameTarget
 Rscript ../A_modules/0_creationBiomartFile.R $ensemblNameSource $ensemblNameTarget $shortNameSource $shortNameTarget
 
 ## Extraction of the gene from the GTF of each species

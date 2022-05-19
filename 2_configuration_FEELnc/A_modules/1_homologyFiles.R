@@ -11,7 +11,7 @@ name2 <- args[4]
 if (ensName1 != ensName2){
 ##### Connexion to Mart
 cat("------------------------------------ \n")
-cat(paste("#", name1, "vs.", name2, "#\n"))
+cat(paste("#", name1, "-", name2, "#\n"))
 cat("------------------------------------ \n")
 cat("Connexion to BioMart ... ")
 ensembl <- useMart("ENSEMBL_MART_ENSEMBL")

@@ -1,4 +1,4 @@
-## Libraries
+### Import packages
 library(stringr)
 library(stringi)
 
@@ -10,7 +10,7 @@ nameTarget <- args[3]
 tableSource <- read.delim(file, header = T, stringsAsFactors = F)
 
 cat("------------------------------------ \n")
-cat(paste("#", nameSource, " - ", nameTarget, "orthology type & strand orientation", "#\n"))
+cat(paste("#", nameSource, "-", nameTarget, "orthology type & strand orientation", "#\n"))
 cat("------------------------------------ \n")
 
 

@@ -8,18 +8,14 @@
 # Extraction of the correct lncRNA features from the GTF and application
 # of the FEELnc_classifier program
 
-
-
-
 ## Inputs :
 GTF=$1 #Necessary to work
 name=$2 #Suffix which will be use to name the output files
 
-
 ## Outputs : 
-#{name}_feelncclassifier.log - general statistics on the number of interactions
-#{name}_classes_feelncclassifier.txt - tabulated-format file with all the interactions
-#{name}_lncConfiguration_feelncclassifier.tsv - tabulated file with all the configuration at the gene level
+# {name}_feelncclassifier.log - general statistics on the number of interactions
+# {name}_classes_feelncclassifier.txt - tabulated-format file with all the interactions
+# {name}_lncConfiguration_feelncclassifier.tsv - tabulated file with all the configuration at the gene level
 
 #####
 #####
@@ -49,26 +45,28 @@ regEx_mRNA='gene_biotype\s\"protein_coding\"'
 #regEx_mRNA='gene_biotype\sprotein_coding'
 
 #lncRNA
-echo -n "Extraction of lncRNA ... "
+echo "------------------------------------"
+printf "Extraction of lncRNA ... "
 zgrep -v "#" $GTF | grep -P $regEx_lncRNA > ${name}_LNCextracted.tmp.gtf
-echo "DONE"
+printf "DONE\n"
 #mRNA 
-echo -n "Extraction of mRNA ... "
+printf "Extraction of mRNA ... "
 zgrep -v "#" $GTF | grep -P $regEx_mRNA > ${name}_mRNAextracted.tmp.gtf
-echo "DONE"
+printf "DONE\n"
 
 #lncRNA relative to mRNA
-echo "FEELnc_classifier ... "
+printf "FEELnc_classifier ... \n "
 $FEELnc_classifier \
 -i ${name}_LNCextracted.tmp.gtf \
 -a ${name}_mRNAextracted.tmp.gtf \
 -l ${name}_feelncclassifier.log > ${name}_classes_feelncclassifier.txt
 #rm *.tmp.gtf
-echo "FEELnc_classifier ... DONE"
+printf "FEELnc_classifier ... DONE"
 
 #geneLevelAnnotation
-echo -n "Creation of the gene level annotation of lncRNA ... "
+printf "Creation of the gene level annotation of lncRNA ... "
 Rscript ../../A_modules/0_FEELnc_tpLevel2gnLevelClassification.R ${name} ${GTF}
-echo "DONE"
+printf "DONE\n"
+echo "------------------------------------"
 
 rm *tmp* 

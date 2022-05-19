@@ -1,6 +1,10 @@
-### Import libraries
+### Import packages
 library(stringr)
 library(stringi)
+
+## Test variables 
+#nameSmpl <- "human"
+#file <- "./1_synteny/human_comparedTo_mouse/human_geneExtracted.gtf"
 
 ## Variables that can be change : 
 # RegEx use for identification and selection of lncRNA & PCG
@@ -12,16 +16,14 @@ source("../A_modules/2_Rfunction_gtfAttributeParser.R")
 
 ## Importing data
 args <- commandArgs(trailingOnly = T)
-#file <- "/home/fabien/1_homologyLNCPCG_toPublish_V1/1_synteny/human_comparedTo_mouse/human_geneExtracted.gtf"
-#nameSmpl <- "human"
 file <- args[1]
 nameSmpl <- args[2]
 
 
 cat("------------------------------------ \n")
-cat(paste("#", nameSmpl, " table creation", "#\n"))
+cat(paste("#", nameSmpl, "table creation", "#\n"))
 cat("------------------------------------ \n")
-# Improtation of the GTF containing only genes
+# Importation of the GTF containing only genes
 GTF <- read.delim(file, header = F, stringsAsFactors = F)
 colnames(GTF) <- c("seqname", "source", "feature",
                    "start", "end", "score",

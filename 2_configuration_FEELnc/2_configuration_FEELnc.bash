@@ -1,10 +1,24 @@
 #!/bin/bash
 
+## Example : 
 
-### Exemple of command
 ### 2_configuration_FEELnc.bash "human" "mouse" "hsapiens" "mmusculus" "/home/fabien/References/Human_GRCh38.p13/Ensembl/Homo_sapiens.GRCh38.101.gtf" "/home/fabien/References/Mouse_GRCm38.p6/Ensembl/Mus_musculus.GRCm38.102.gtf" "open1"
 
 ## To work 
+
+
+######################################################################################
+## Example : 
+# 2_configuration_FEELnc.bash \
+#"human" \
+#"mouse" \
+#"hsapiens" \
+#"mmusculus" \
+#"Ensembl/Homo_sapiens.GRCh38.101.gtf" \
+#"Ensembl/Mus_musculus.GRCm38.102.gtf" \
+#"open2"
+
+## To debug (if needed) :
 #shortNameSource="human"
 #shortNameTarget="mouse"
 #ensemblNameSource="hsapiens"
@@ -12,7 +26,9 @@
 #GTFsource="/home/fabien/References/Human_GRCh38.p13/Ensembl/Homo_sapiens.GRCh38.101.gtf"
 #GTFtarget="/home/fabien/References/Mouse_GRCm38.p6/Ensembl/Mus_musculus.GRCm38.102.gtf"
 #configNamming="open"
+######################################################################################
 
+## Variables
 shortNameSource=$1
 shortNameTarget=$2
 ensemblNameSource=$3
@@ -24,14 +40,25 @@ configNamming=$7 #Degree of precision for the configuration :
 					# inter : (linSSup = lincSSdw) != lngSS
 					# open : lincSSup = lincSSdw = lncgSS
 
+######################################################################################
 
 ## FELLnc takes a lot of time, if the file already exit, we just copy it. 
 # For species 1 
 sp1_file=`find . -name  ${shortNameSource}_lncConfiguration_feelncclassifier.tsv | head -1`
-rp1=`realpath $sp1_file`
 # For species 2
 sp2_file=`find . -name  ${shortNameTarget}_lncConfiguration_feelncclassifier.tsv | head -1`
-rp2=`realpath $sp2_file`
+
+## Creation of the FeelNC file for both species
+if ! [ -z "$sp1_file" ]
+then
+      rp1=`realpath -q  $sp1_file`
+fi
+# For species 2
+if ! [ -z "$sp2_file" ]
+then
+      rp2=`realpath -q  $sp2_file`
+fi
+
 
 # Directory Creation
 mkdir "${shortNameSource}_comparedTo_${shortNameTarget}"
@@ -40,19 +67,19 @@ cd "${shortNameSource}_comparedTo_${shortNameTarget}"
 ## Creation of the FeelNC file for both species
 if [ -z "$sp1_file" ]
 then
-      echo "The ${shortNameSource} file doesn't exist and will be created."
+      printf "The ${shortNameSource} file doesn't exist and will be created. \n"
 	  bash ../../A_modules/0_FEELnc_classifier_adapted.bash ${GTFsource} ${shortNameSource}
 else
-      echo "The ${shortNameSource} file already exist and has been copied."
+      printf "The ${shortNameSource} file already exist and has been copied. \n"
 	  cp $rp1 ./
 fi
 # For species 2
 if [ -z "$sp2_file" ]
 then
-      echo "The ${shortNameTarget} file doesn't exist and will be created."
+      printf "The ${shortNameTarget} file doesn't exist and will be created. \n"
 	  bash ../../A_modules/0_FEELnc_classifier_adapted.bash ${GTFtarget} ${shortNameTarget}
 else
-      echo "The ${shortNameTarget} file already exist and has been copied."
+      printf "The ${shortNameTarget} file already exist and has been copied. \n"
 	  cp $rp2 ./
 fi
 

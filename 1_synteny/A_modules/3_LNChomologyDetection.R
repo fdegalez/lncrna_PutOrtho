@@ -1,19 +1,8 @@
-## Library
+### Import packages
 library(stringr)
 library(stringi)
 
-## Importing data
-args <- commandArgs(trailingOnly = T)
-
-source <- args[1]
-tableSource <- read.delim(source, header = T, stringsAsFactors = F)
-target <- args[2]
-tableTarget <- read.delim(target, header = T, stringsAsFactors = F)
-homologyInfo <- args[3]
-orthology <- read.delim(homologyInfo, header = T, stringsAsFactors = F)
-nameSource <- args[4]
-nameTarget <- args[5]
-
+## Test variables 
 # source <- "2_tableGTF_human.tsv"
 # tableSource <- read.delim(source, header = T, stringsAsFactors = F)
 # target <- "2_tableGTF_mouse.tsv"
@@ -23,8 +12,21 @@ nameTarget <- args[5]
 # nameSource <- "human"
 # nameTarget <- "mouse"
 
+## Importing data
+args <- commandArgs(trailingOnly = T)
+source <- args[1]
+tableSource <- read.delim(source, header = T, stringsAsFactors = F)
+target <- args[2]
+tableTarget <- read.delim(target, header = T, stringsAsFactors = F)
+homologyInfo <- args[3]
+orthology <- read.delim(homologyInfo, header = T, stringsAsFactors = F)
+nameSource <- args[4]
+nameTarget <- args[5]
+
+
+
 cat("------------------------------------ \n")
-cat(paste("#", nameSource, " - ", nameTarget, " orthology table creation", "#\n"))
+cat(paste("#", nameSource, "-", nameTarget, "orthology table creation", "#\n"))
 cat("------------------------------------ \n")
 
 

@@ -1,20 +1,23 @@
 #!/bin/bash
 
-### Exemple of command
-### 3_alignement_MP.bash "human" "mouse" "/home/fabien/References/Human_GRCh38.p13/Ensembl/Homo_sapiens.GRCh38.101.gtf" "/home/fabien/References/Mouse_GRCm38.p6/Ensembl/Mus_musculus.GRCm38.102.gtf"
+######################################################################################
+## Command usage :
+# 3_alignement_MP.bash "human" "mouse" "/home/fabien/References/Human_GRCh38.p13/Ensembl/Homo_sapiens.GRCh38.101.gtf" "/home/fabien/References/Mouse_GRCm38.p6/Ensembl/Mus_musculus.GRCm38.102.gtf"
 
+
+## Example : 
 #shortNameSource="human"
 #shortNameTarget="mouse"
-#GTFsource="/home/fabien/References/Human_GRCh38.p13/Ensembl/Homo_sapiens.GRCh38.101.gtf"
-#GTFtarget="/home/fabien/References/Mouse_GRCm38.p6/Ensembl/Mus_musculus.GRCm38.102.gtf"
+#GTFsource="Ensembl/Homo_sapiens.GRCh38.101.gtf"
+#GTFtarget="Ensembl/Mus_musculus.GRCm38.102.gtf"
 #sizeBlockAuthorized=500
+######################################################################################
 
 shortNameSource=$1
 shortNameTarget=$2
 GTFsource=$3
 GTFtarget=$4
 sizeBlockAuthorized=$5
-
 
 ## The alignement of lncRNAs of the main sepcies takes a lot of time, if the directory already exit, we just copy it. 
 # For species 1 
