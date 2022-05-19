@@ -51,7 +51,7 @@ The following software and libraries must be installed :
     - [Bioperl](http://www.bioperl.org/wiki/Main_Page) : tested with version 1.7.8  
     - [TimeHiRes](https://metacpan.org/pod/Time::HiRes) : tested with version 1.9764      
 
-\-
+
 
 - [R](https://cran.r-project.org/) : test with version 3.5.2 - 2018-12-20 - Eggshell Igloo
     R libraries : 
@@ -59,7 +59,7 @@ The following software and libraries must be installed :
     - [stringr](https://cloud.r-project.org/web/packages/stringr/index.html) v1.4.0 or more - Simple, Consistent Wrappers for Common String Operations. 
     - [stringi](https://cran.r-project.org/web/packages/stringi/index.html) v1.2.4 or more  - Character String Processing Facilities.  
 
-\- 
+
 
 - [FEELnc](https://github.com/tderrien/FEELnc) : test with version 0.2 - 2020-11-12
     - [FEELnc_classifier.pl](https://github.com/tderrien/FEELnc#3--feelnc_classifierpl) : Classify lncRNAs based on their genomic localization with others transcripts.
@@ -120,9 +120,9 @@ The first module of the workflow allows the search for potentially orthologous l
 bash 1_generationMulti_synteny.bash [CONFIG FILE ABSOLUTE PATH]
 ```
 
-N.B (1) : In order to detect the genes' biotypes, two regular expressions are used. _"protein_coding"_ for PCGs and _"antisense|lincRNA|lncRNA|sense_exonic|sense_intronic"_ for lncRNAs. If you use a custom GTF file or want to add a specific biotype, it is possible to modify these regular expressions by changing the lines at the beginning of the 2_creationTable.R module located in 1_synteny/A_modules/ (This option will be added in a future update)
+_N.B (1)_ : In order to detect the genes' biotypes, two regular expressions are used. _"protein_coding"_ for PCGs and _"antisense|lincRNA|lncRNA|sense_exonic|sense_intronic"_ for lncRNAs. If you use a custom GTF file or want to add a specific biotype, it is possible to modify these regular expressions by changing the lines at the beginning of the 2_creationTable.R module located in 1_synteny/A_modules/ (This option will be added in a future update)
 
-N.B (2) : Sometimes a message "Ensembl site unresponsive" can appear. This is independent of the program and indicates that the Ensemble database that is used cannot be accessed. It is possible to use the mirror site by changing this parameter in the "0_creationBiomartFile.R" module. 
+_N.B (2)_ : Sometimes a message "Ensembl site unresponsive" can appear. This is independent of the program and indicates that the Ensemble database that is used cannot be accessed. It is possible to use the mirror site by changing this parameter in the "0_creationBiomartFile.R" module. 
 
 - **OUTPUT** :  
 In each sub-directory "sp1_comparedTo_sp2", there is : 
@@ -166,7 +166,7 @@ Considering that all the species doesn't have the same level of annotation, the 
 - **open1**: Consider three cases as convergent / antisense / divergent without any disinction
 - **open2**: Only consider antisense and divergent cases  
 
-\\
+<br>
 
 - **INPUT** : 
     - The config file in the correct format (see the file **"config_exempleFile.txt"**)
@@ -176,9 +176,9 @@ Considering that all the species doesn't have the same level of annotation, the 
 # Usage:
 bash 2_generationMulti_configurationFEELnc.bash [CONFIG FILE ABSOLUTE PATH] [configNamming]
 ```
-N.B (1) : In order to detect the genes' biotypes, two regular expressions are used. _"protein_coding"_ for PCGs and _"antisense|lincRNA|lncRNA|sense_exonic|sense_intronic"_ for lncRNAs. If you use a custom GTF file or want to add a specific biotype, it is possible to modify these regular expressions by changing the lines at the beginning of the 0_FEELnc_classifier_adapted.bash module located in 2_configuration_FEELnc/A_modules/ (This option will be added in a future update)
+_N.B (1)_ : In order to detect the genes' biotypes, two regular expressions are used. _"protein_coding"_ for PCGs and _"antisense|lincRNA|lncRNA|sense_exonic|sense_intronic"_ for lncRNAs. If you use a custom GTF file or want to add a specific biotype, it is possible to modify these regular expressions by changing the lines at the beginning of the 0_FEELnc_classifier_adapted.bash module located in 2_configuration_FEELnc/A_modules/ (This option will be added in a future update)
 
-N.B (2) : Depending on the accuracy of the genome annotation, FEELnc may take more or less time to complete. A part of the program allows not to repeat this operation for the different crosses. However, in order to save more time, if the FEELnc files have already been generated (in an annex analysis for example) it is possible to use them by placing them in the 2_configuration_FEELnc/B_results/feelNC_data folder (can be created if it's not already the case) and naming them as {shortName}_lncConfiguration_feelncclassifier.tsv
+_N.B (2)_ : Depending on the accuracy of the genome annotation, FEELnc may take more or less time to complete. A part of the program allows not to repeat this operation for the different crosses. However, in order to save more time, if the FEELnc files have already been generated (in an annex analysis for example) it is possible to use them by placing them in the 2_configuration_FEELnc/B_results/feelNC_data folder (can be created if it's not already the case) and naming them as {shortName}_lncConfiguration_feelncclassifier.tsv
 
 
 - **OUTPUT** :  
@@ -222,9 +222,9 @@ In some cases, the alignment can be done in several more or less separate blocks
 #bash 3_generationMulti_alignementMP.bash [CONFIG FILE ABSOLUTE PATH] [sizeBlockAuthorized]
 ```
 
-N.B (1) : In order to detect the genes' biotypes, two regular expressions are used. _"protein_coding"_ for PCGs and _"antisense|lincRNA|lncRNA|sense_exonic|sense_intronic"_ for lncRNAs. If you use a custom GTF file or want to add a specific biotype, it is possible to modify these regular expressions by changing the lines at the beginning of the 1_extraction_listLNC.bash module located in 3_alignement_MP/A_modules/ (This option will be added in a future update)
+_N.B (1)_ : In order to detect the genes' biotypes, two regular expressions are used. _"protein_coding"_ for PCGs and _"antisense|lincRNA|lncRNA|sense_exonic|sense_intronic"_ for lncRNAs. If you use a custom GTF file or want to add a specific biotype, it is possible to modify these regular expressions by changing the lines at the beginning of the 1_extraction_listLNC.bash module located in 3_alignement_MP/A_modules/ (This option will be added in a future update)
 
-N.B (2) : Depending on the accuracy of the genome annotation, the extraction from the Compara DB may take more or less time to complete. A part of the program allows not to repeat this operation for the different crosses. However, in order to save more time, if the files have already been generated (in an annex analysis for example) it is possible to use them by placing them in the 3_alignement_MP/B_results/Compara_data folder (can be created if it's not already the case) and naming them as {shortName}_alignement_MP_63amniotes
+_N.B (2)_ : Depending on the accuracy of the genome annotation, the extraction from the Compara DB may take more or less time to complete. A part of the program allows not to repeat this operation for the different crosses. However, in order to save more time, if the files have already been generated (in an annex analysis for example) it is possible to use them by placing them in the 3_alignement_MP/B_results/Compara_data folder (can be created if it's not already the case) and naming them as {shortName}_alignement_MP_63amniotes
 
 - **OUTPUT** :  
 In each sub-directory "sp1_comparedTo_sp2", there is : 
