@@ -1,4 +1,4 @@
-# lncRNA_OrthoFind (WIP) :
+# lncRNA_OrthoFind :
 
 
 This document is intended to describe the lncRNA_Orthofind workflow for identifying potential orthologous lncRNAs between two (or more) species using three methods (corresponding to the three modules) combining synteny, lncRNA-PCG pair genomic configuration and alignment.
