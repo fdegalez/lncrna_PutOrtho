@@ -1,9 +1,17 @@
-# ignorer results of gene extraction (1_extractionGenes)
+# ignore results of gene extraction (1_extractionGenes)
 1_extractionGenes/results/*
 1_extractionGenes/results_gnInfo/*
 !1_extractionGenes/results/.gitkeep
 !1_extractionGenes/results_gnInfo/.gitkeep
 
-# ignorer results of orthology
+# ignore results of orthology (2_extractionOrthologyPCG)
 2_extractionOrthologyPCG/results/*
 !2_extractionOrthologyPCG/results/.gitkeep
+
+# ignore results of synteny (3_synteny)
+3_synteny/results_table/*
+!3_synteny/results_table/.gitkeep
+3_synteny/results_synteny/*
+!3_synteny/results_synteny/.gitkeep
+3_synteny/results_syntenyMerged/*
+!3_synteny/results_syntenyMerged/.gitkeep

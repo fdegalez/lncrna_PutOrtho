@@ -66,7 +66,7 @@ merged_list <- list()
 
 for (gtf in gtf_files) {
 
-  species <- str_remove(basename(gtf), "_genesOnly.gtf")
+  species <- str_split(str_remove(basename(gtf), "_genesOnly.gtf"), "\\.", simplify = T)[,1]
 
   cat("Processing:", species, "\n")
 
