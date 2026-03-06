@@ -1,0 +1,3 @@
+# ignorer un dossier
+1_extractionGenes/results/*
+1_extractionGenes/results_gnInfo/*
