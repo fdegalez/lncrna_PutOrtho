@@ -18,6 +18,10 @@
 
 # ignore results of FEELnc (4_FEELnc)
 4_FEELnc/results/*
+4_FEELnc/results_geneLevel/*
+4_FEELnc/results_orthoFeelnc/*
+4_FEELnc/results_orthoFeelnc_agg/*
+4_FEELnc/results_orthoFeelnc_merged/*
 !4_FEELnc/results/.gitkeep
 !4_FEELnc/results/logs/.gitkeep
 !4_FEELnc/results_geneLevel/.gitkeep
