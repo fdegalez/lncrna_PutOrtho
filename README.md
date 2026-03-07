@@ -1,6 +1,6 @@
 # lncRNA Orthology Inference Pipeline
 
-## Overview
+# Overview
 
 This repository provides a modular workflow to infer **putative orthologous relationships between long non‑coding RNAs (lncRNAs)** across multiple species.
 
@@ -12,6 +12,7 @@ Because lncRNAs evolve rapidly and often lack strong sequence conservation, clas
 
 The workflow provides a flexible framework allowing users to detect candidate lncRNA orthologs using complementary evidence.
 For a more general overview, you could point to [the associated paper](https://www.biorxiv.org/content/10.1101/2024.10.03.616473v1).
+
 ------------------------------------------------------------------------
 
 # Repository Structure
@@ -63,25 +64,15 @@ Each module then can be executed independently or through the global pipeline sc
 
 ------------------------------------------------------------------------
 
-# Requirements
-
-## Operating system
-
-Linux or macOS recommended.
-
-------------------------------------------------------------------------
-
-# Software Dependencies
+# Requirements / Software Dependencies
 
 ## R
 
 Minimum version:
-
     [R](https://cran.r-project.org/) ≥ 4.0
 
 Required R packages:
-
-	- [BiomaRt](https://bioconductor.org/packages/release/bioc/html/biomaRt.html) v2.38.0 or more - Interface to BioMart databases (i.e Ensembl). 
+    - [BiomaRt](https://bioconductor.org/packages/release/bioc/html/biomaRt.html) v2.38.0 or more - Interface to BioMart databases (i.e Ensembl). 
     - [stringr](https://cloud.r-project.org/web/packages/stringr/index.html) v1.5.0 or more - Simple, Consistent Wrappers for Common String Operations. 
     - [stringi](https://cran.r-project.org/web/packages/stringi/index.html) v1.8 or more  - Character String Processing Facilities.  
     - [pbapply](https://cran.r-project.org/web/packages/pbapply/index.html) v1.7 or more  - Adding Progress Bar to '*apply' Functions.  
@@ -94,11 +85,9 @@ Required R packages:
 ## Perl
 
 Required for the Ensembl API.
-
     [Perl5+](https://www.perl.org/) ≥ 5.32
 
 Required modules:
-
     - [Ensembl API](https://www.ensembl.org/info/docs/api/api_installation.html) : tested with e! v104  
     - [Bioperl](http://www.bioperl.org/wiki/Main_Page) : tested with version 1.7.8  
     - [TimeHiRes](https://metacpan.org/pod/Time::HiRes) : tested with version 1.9764      
@@ -134,14 +123,11 @@ Example format:
     mouse         mmusculus      Mus_musculus       /PATH/TO/Mus_musculus.GRCm39.109.gtf 
     dog         clfamiliaris        Canis_lupus_familiaris         /PATH/TO/Canis_lupus_familiaris.ROS_Cfam_1.0.109.gtf
 
-Columns:
-
-  Column         Description
-  -------------- --------------------------------------
-  shortName      short identifier
-  ensemblName    Ensembl species name
-  completeName   Full species identifier 
-  pathToGTF       path to the genome annotation (GTF)
+Columns description:
+  - shortName: short identifier
+  - ensemblName: Ensembl species name
+  - completeName: Full species identifier 
+  - pathToGTF: path to the genome annotation (GTF)
 
 N.B : These names follow the Ensembl nomenclature. 
 
@@ -149,9 +135,7 @@ N.B : These names follow the Ensembl nomenclature.
 
 # Module Descriptions
 
-------------------------------------------------------------------------
-
-# 1. Gene Extraction
+## 1. Gene Extraction
 
 Directory:
 
@@ -179,13 +163,14 @@ bash 1_extractionGenes/extract_genes.sh data/config.txt
 
 ------------------------------------------------------------------------
 
-# 2. Protein‑Coding Gene Orthology Extraction
+## 2. Protein‑Coding Gene Orthology Extraction
 
 Directory:
 
     2_extractionOrthologyPCG
 
-Orthology relationships between protein‑coding genes are retrieved automatically from **Ensembl BioMart**.
+Step:
+1.  Orthology relationships between protein‑coding genes are retrieved automatically from **Ensembl BioMart**.
 
 The user can indicate the Ensembl version he wants to use, if nothing is indicated, the latest version will be use.
 
@@ -201,7 +186,7 @@ bash 2_extractionOrthologyPCG/run_OrthologyExtraction.sh [Ensembl Version]
 
 ------------------------------------------------------------------------
 
-# 3. Synteny‑Based lncRNA Orthology
+## 3. Synteny‑Based lncRNA Orthology
 
 Directory:
 
@@ -210,7 +195,6 @@ Directory:
 This module identifies lncRNA orthology based on conserved genomic neighborhoods of protein‑coding genes.
 
 Steps:
-
 1.  Identify flanking PCGs around each lncRNA
 2.  Identify orthologous PCG pairs
 3.  Detect lncRNAs located between orthologous PCGs
@@ -228,7 +212,7 @@ bash 3_synteny/run_synteny.sh data/config.txt
 
 ------------------------------------------------------------------------
 
-# 4. FEELnc Genomic Context Orthology
+## 4. FEELnc Genomic Context Orthology
 
 Directory:
 
@@ -238,7 +222,6 @@ lncRNAs are classified according to their genomic configuration relative to near
 Orthology is inferred when configurations are conserved between species.
 
 Steps:
-
 1.  FEELnc classification
 2.  Transcript → gene level conversion
 3.  Cross‑species comparison
@@ -257,7 +240,7 @@ bash 4_FEELnc/run_orthoFEELnc.sh data/config.txt
 
 ------------------------------------------------------------------------
 
-# 5. Genome Alignment Orthology (Ensembl Compara)
+## 5. Genome Alignment Orthology (Ensembl Compara)
 
 Directory:
 
@@ -284,7 +267,7 @@ bash 5_compara/run_compara_pipeline.sh data/config.txt
 
 ------------------------------------------------------------------------
 
-# Running the Full Pipeline
+## Running the Full Pipeline
 
 To run the entire workflow:
 
@@ -293,10 +276,10 @@ bash run_all_methods.sh [options] [config_file]
 ```
 
 Options:
-  --all        Run the full pipeline (default)
-  --synteny    Run method 1 only
-  --feelnc     Run method 2 only
-  --compara    Run method 3 only
+-   --all        Run the full pipeline (default)
+-   --synteny    Run method 1 only
+-   --feelnc     Run method 2 only
+-   --compara    Run method 3 only
 
 ------------------------------------------------------------------------
 
