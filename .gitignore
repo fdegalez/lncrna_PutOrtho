@@ -23,3 +23,10 @@
 4_FEELnc/results_orthoFeelnc_agg/**
 4_FEELnc/results_orthoFeelnc_merged/**
 !4_FEELnc/**/.gitkeep
+
+
+# ignore results of 5_compara
+5_compara/results_raw/**
+5_compara/input_formatted/**
+5_compara/results_isMatching/**
+!5_compara/**/.gitkeep
