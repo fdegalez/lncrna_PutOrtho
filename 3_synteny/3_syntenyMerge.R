@@ -71,6 +71,7 @@ dir.create("results_syntenyMerged", showWarnings = FALSE)
 
 # Main loop --------------------------------------------------------------------
 
+i <- 1
 for(i in seq_len(nrow(config))){
 
   shortName    <- config$shortName[i]
@@ -96,17 +97,24 @@ for(i in seq_len(nrow(config))){
 
 
   # Merge pairwise results -----------------------------------------------------
-
+  path <- synteny_interest[1]
   for(path in synteny_interest){
 
     synteny_file <- read.delim(path, stringsAsFactors=FALSE)
 
-    synteny_file <- synteny_file[,c(1,10,20)]
+    synteny_file <- synteny_file[,c(1,9,18)]
 
+    colnames(synteny_file)[3] <- paste0("orthology_type.", 
+                                        str_split(colnames(synteny_file)[1], "\\.", simplify = T)[,2],
+                                        ".",
+                                        str_split(colnames(synteny_file)[2], "\\.", simplify = T)[,2])
+    
     expanded <- pbapply(synteny_file,1,uncollapse_lnc)
 
     expanded <- do.call(rbind,expanded)
 
+    colnames(expanded) <- colnames(synteny_file)
+    
     res <- merge(
       res,
       expanded,
@@ -149,3 +157,4 @@ for(i in seq_len(nrow(config))){
   )
 
 }
+

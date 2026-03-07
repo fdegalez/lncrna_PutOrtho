@@ -161,7 +161,7 @@ find_lncRNA_orth_byPCGcouple <- function(x){
 orthology_categories <- function(x){
 
   nb_source <- str_count(x[1],";")+1
-  nb_target <- str_count(x[10],";")+1
+  nb_target <- str_count(x[9],";")+1
 
   if(nb_source==1 & is.na(nb_target)) return("one_to_zero")
   if(nb_source>1 & is.na(nb_target)) return("many_to_zero")
@@ -206,6 +206,7 @@ pairs <- pairs[pairs$source!=pairs$target,]
 
 # Main loop --------------------------------------------------------------------
 
+i<-1
 for(i in seq_len(nrow(pairs))){
 
   cat(i,"/",nrow(pairs),":",pairs$source[i],"-",pairs$target[i],"\n")
@@ -281,7 +282,7 @@ for(i in seq_len(nrow(pairs))){
 
   results <- results[!apply(results,1,function(x) all(is.na(x))),]
 
-
+  results <- results[!is.na(results[,1]),]
   results$type <- pbapply(results,1,orthology_categories)
 
 
