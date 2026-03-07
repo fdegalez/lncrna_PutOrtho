@@ -80,7 +80,6 @@ Required R packages:
     - [dplyr](https://cran.r-project.org/web/packages/stringi/index.html) v1.1.4 or more  - A Grammar of Data Manipulation.
 
 
-------------------------------------------------------------------------
 
 ## Perl
 
@@ -93,7 +92,6 @@ Required modules:
     - [TimeHiRes](https://metacpan.org/pod/Time::HiRes) : tested with version 1.9764      
 
 
-------------------------------------------------------------------------
 
 ## FEELnc
 
@@ -161,7 +159,6 @@ Run module:
 bash 1_extractionGenes/extract_genes.sh data/config.txt
 ```
 
-------------------------------------------------------------------------
 
 ## 2. Protein‑Coding Gene Orthology Extraction
 
@@ -184,7 +181,6 @@ Run module:
 bash 2_extractionOrthologyPCG/run_OrthologyExtraction.sh [Ensembl Version]
 ```
 
-------------------------------------------------------------------------
 
 ## 3. Synteny‑Based lncRNA Orthology
 
@@ -210,7 +206,6 @@ Run module:
 bash 3_synteny/run_synteny.sh data/config.txt
 ```
 
-------------------------------------------------------------------------
 
 ## 4. FEELnc Genomic Context Orthology
 
@@ -238,7 +233,6 @@ Run module:
 bash 4_FEELnc/run_orthoFEELnc.sh data/config.txt
 ```
 
-------------------------------------------------------------------------
 
 ## 5. Genome Alignment Orthology (Ensembl Compara)
 
@@ -276,22 +270,21 @@ bash run_all_methods.sh [options] [config_file]
 ```
 
 Options:
--   --all        Run the full pipeline (default)
--   --synteny    Run method 1 only
--   --feelnc     Run method 2 only
--   --compara    Run method 3 only
+-   --all: Run the full pipeline (default)
+-   --synteny: Run method 1 only
+-   --feelnc: Run method 2 only
+-   --compara: Run method 3 only
 
 ------------------------------------------------------------------------
 
 # Output Overview
 
-The pipeline produces orthology predictions from **three independent methods**.
+The pipeline produces orthology predictions from **three independent methods**:
 
-  Method                 Output directory
-  ---------------------- ------------------------------
-  Synteny                3_synteny/results_syntenyMerged
-  FEELnc configuration   4_FEELnc/results_orthoFeelnc_merged
-  Genome alignment       5_compara/results_isMatching
+    Method                 Output directory
+    Synteny                3_synteny/results_syntenyMerged
+    FEELnc configuration   4_FEELnc/results_orthoFeelnc_merged
+    Genome alignment       5_compara/results_isMatching
 
 These outputs can be integrated to obtain **high‑confidence candidate lncRNA orthologs**.
 
@@ -308,14 +301,14 @@ These outputs can be integrated to obtain **high‑confidence candidate lncRNA o
 
 # Comments / Questions / Bugs / TODO
 
-- Fabien Degalez
-- Sandrine Lagarrigue
+-  XX
 
 ------------------------------------------------------------------------
 
 # Authors
 
-Fabien Degalez
+- Fabien Degalez
+- Sandrine Lagarrigue
 
 ------------------------------------------------------------------------
 
