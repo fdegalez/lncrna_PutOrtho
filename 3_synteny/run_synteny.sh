@@ -6,7 +6,7 @@ echo "======================================="
 echo "   METHOD 1 - SYNTENY ORTHOLOGY"
 echo "======================================="
 
-CONFIG="../data/config.txt"
+CONFIG=${1:-"../data/config.txt"}
 
 # Check config
 if [ ! -f "$CONFIG" ]; then
