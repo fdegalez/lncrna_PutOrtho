@@ -1,7 +1,0 @@
-configName	color.RGB	color.Hex
-lincConv	214,179,105	#D6B369
-lincDivg	138,80,20	#8A5014
-lincSS	245,232,196	#F5E8C4
-lncgAS	96,180,172	#60B4AC
-lncgSS	201,234,229	#C9EAE5
-unclassified	191,191,191	#BFBFBF
