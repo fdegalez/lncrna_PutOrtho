@@ -15,3 +15,12 @@
 !3_synteny/results_synteny/.gitkeep
 3_synteny/results_syntenyMerged/*
 !3_synteny/results_syntenyMerged/.gitkeep
+
+# ignore results of FEELnc (4_FEELnc)
+4_FEELnc/results/*
+!4_FEELnc/results/.gitkeep
+!4_FEELnc/results/logs/.gitkeep
+!4_FEELnc/results_geneLevel/.gitkeep
+!4_FEELnc/results_orthoFeelnc/.gitkeep
+!4_FEELnc/results_orthoFeelnc_agg/.gitkeep
+!4_FEELnc/results_orthoFeelnc_merged/.gitkeep
