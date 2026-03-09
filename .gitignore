@@ -2,18 +2,27 @@
 1_extractionGenes/**
 !1_extractionGenes/**/
 !1_extractionGenes/**/example_output/**
+!1_extractionGenes/**/*.pl
+!1_extractionGenes/**/*.sh
+!1_extractionGenes/**/*.R
 !**/.gitkeep
 
 # ignore results of orthology (2_extractionOrthologyPCG)
 2_extractionOrthologyPCG/**
 !2_extractionOrthologyPCG/**/
 !2_extractionOrthologyPCG/**/example_output/**
+!2_extractionOrthologyPCG/**/*.pl
+!2_extractionOrthologyPCG/**/*.sh
+!2_extractionOrthologyPCG/**/*.R
 !**/.gitkeep
 
 # ignore results of synteny (3_synteny)
 3_synteny/**
 !3_synteny/**/
 !3_synteny/**/example_output/**
+!3_synteny/**/*.pl
+!3_synteny/**/*.sh
+!3_synteny/**/*.R
 !**/.gitkeep
 
 # ignore results of FEELnc (4_FEELnc)
@@ -28,6 +37,9 @@
 5_compara/**
 !5_compara/**/
 !5_compara/**/example_output/**
+!5_compara/**/*.pl
+!5_compara/**/*.sh
+!5_compara/**/*.R
 !**/.gitkeep
 
 
@@ -35,4 +47,7 @@
 6_summary/**
 !6_summary/**/
 !6_summary/**/example_output/**
+!6_summary/**/*.pl
+!6_summary/**/*.sh
+!6_summary/**/*.R
 !**/.gitkeep
