@@ -1,5 +1,0 @@
-lncRNAid_Homo_sapiens	isTable_1_Mus_musculus	orthology_type_synteny_Mus_musculus	lncRNA_synteny_id_Mus_musculus	isTable_2_Mus_musculus	orthology_type_configuration_Mus_musculus	configuration_type_configuration_Mus_musculus	lncRNA_configuration_id_Mus_musculus	isTable_3_Mus_musculus
-ENSG00000260972	1	many_to_one	ENSMUSG00000085648	0	NA	NA	NA	0
-ENSG00000284674	1	many_to_one	ENSMUSG00000085648	0	NA	NA	NA	0
-ENSG00000284616	1	many_to_many_DifferentNumber	ENSMUSG00000073699;ENSMUSG00000087454	0	NA	NA	NA	0
-ENSG00000231510	1	many_to_many_DifferentNumber	ENSMUSG00000073699;ENSMUSG00000087454	0	NA	NA	NA	0

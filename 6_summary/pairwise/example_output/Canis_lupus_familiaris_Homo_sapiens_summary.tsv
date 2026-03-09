@@ -1,5 +1,0 @@
-lncRNAid_Canis_lupus_familiaris	isTable_1_Homo_sapiens	orthology_type_synteny_Homo_sapiens	lncRNA_synteny_id_Homo_sapiens	isTable_2_Homo_sapiens	orthology_type_configuration_Homo_sapiens	configuration_type_configuration_Homo_sapiens	lncRNA_configuration_id_Homo_sapiens	isTable_3_Homo_sapiens
-ENSCAFG00845019973	1	one_to_many	ENSG00000261101;ENSG00000286000	1	one_to_one	lncgSS.dw	ENSG00000261101	0
-ENSCAFG00845019984	1	one_to_one	ENSG00000228275	0	NA	NA	NA	0
-ENSCAFG00845021066	1	one_to_one	ENSG00000237741	0	NA	NA	NA	0
-ENSCAFG00845022321	1	one_to_one	ENSG00000223571	1	one_to_one	lncgSS.up	ENSG00000223571	0
