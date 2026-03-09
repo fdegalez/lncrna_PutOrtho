@@ -1,0 +1,5 @@
+lncRNAid_Mus_musculus	isTable_1_Homo_sapiens	orthology_type_synteny_Homo_sapiens	lncRNA_synteny_id_Homo_sapiens	isTable_2_Homo_sapiens	orthology_type_configuration_Homo_sapiens	configuration_type_configuration_Homo_sapiens	lncRNA_configuration_id_Homo_sapiens	isTable_3_Homo_sapiens	isTable_1_Canis_lupus_familiaris	orthology_type_synteny_Canis_lupus_familiaris	lncRNA_synteny_id_Canis_lupus_familiaris	isTable_2_Canis_lupus_familiaris	orthology_type_configuration_Canis_lupus_familiaris	configuration_type_configuration_Canis_lupus_familiaris	lncRNA_configuration_id_Canis_lupus_familiaris	isTable_3_Canis_lupus_familiaris	sumIsTable	sumIsTable_1	sumIsTable_2	sumIsTable_3
+ENSMUSG00000000031	0	NA	NA	0	NA	NA	NA	0	0	NA	NA	0	NA	NA	NA	1	1	0	0	1
+ENSMUSG00000006462	1	many_to_many_DifferentNumber	ENSG00000203999;ENSG00000224397	0	NA	NA	NA	0	0	NA	NA	0	NA	NA	NA	0	1	1	0	0
+ENSMUSG00000009551	0	NA	NA	1	one_to_one	lncgDivg	ENSG00000286196	1	0	NA	NA	0	NA	NA	NA	1	3	0	1	2
+ENSMUSG00000010492	1	one_to_one	ENSG00000280213	1	one_to_one	lncgConv	ENSG00000280213	1	0	NA	NA	1	one_to_one	lncgConv	ENSCAFG00845018871	1	5	1	2	2
