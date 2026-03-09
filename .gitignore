@@ -30,3 +30,7 @@
 5_compara/input_formatted/**
 5_compara/results_isMatching/**
 !5_compara/**/.gitkeep
+
+# ignore results of 6_summary
+6_summary//*
+!6_summary/**/.gitkeep
