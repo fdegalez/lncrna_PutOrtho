@@ -33,12 +33,12 @@ This repository provides a modular workflow to infer **putative orthologous rela
 
 Because lncRNAs evolve rapidly and often lack strong sequence conservation, classical orthology inference methods designed for protein‑coding genes are frequently insufficient. This pipeline integrates **three complementary strategies** to detect lncRNA orthologs:
 
-1.  **Synteny-based inference**
-2.  **Genomic context conservation (FEELnc classification)**
-3.  **Genome alignment conservation (Ensembl Compara, here: Mercator--Pecan alignments)**
+1.  **Synteny-based inference** (3_synteny directory)
+2.  **Genomic context conservation (FEELnc classification)** (4_FEELnc directory)
+3.  **Genome alignment conservation (Ensembl Compara, here: Mercator--Pecan alignments)** (5_compara directory)
 
 The workflow provides a flexible framework allowing users to detect candidate lncRNA orthologs using complementary evidence.
-For a more general overview, you could point to [the associated paper](https://www.biorxiv.org/content/10.1101/2024.10.03.616473v1).
+For a more general overview, you could point to [the associated paper](https://www.biorxiv.org/content/10.1101/2024.10.03.616473v1). (Currently submitted to NAR)
 
 
 
@@ -207,7 +207,7 @@ The user can indicate the Ensembl version he wants to use, if nothing is indicat
 
 Output:
 
-    results/speciesA-speciesB_homology.tsv
+    results/ensemblName[SpA]-ensemblName[SpB]_homology.tsv
 
 Run module:
 
@@ -368,8 +368,9 @@ The pipeline produces orthology predictions from **three independent methods**:
     FEELnc configuration   4_FEELnc/results_orthoFeelnc_merged
     Genome alignment       5_compara/results_isMatching
 
-These outputs can be integrated to obtain **high‑confidence candidate lncRNA orthologs**.
+These outputs can be integrated through `6_summary` to obtain **high‑confidence candidate lncRNA orthologs**.
 
+For each method, example output files are provided in the `example_output` directories located within the corresponding module directories. These files contain the first lines of the expected outputs and can help users understand the structure and format of the results generated at each step of the pipeline.
 
 # Typical Workflow
 
