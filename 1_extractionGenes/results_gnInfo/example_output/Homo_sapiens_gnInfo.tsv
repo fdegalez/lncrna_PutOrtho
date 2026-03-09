@@ -1,5 +1,0 @@
-gene_id	gene_name	gene_biotype	seqname	start	end	strand	species
-ENSG00000160072	ATAD3B	protein_coding	1	1471765	1497848	+	Homo_sapiens
-ENSG00000279928	DDX11L17	unprocessed_pseudogene	1	182696	184174	+	Homo_sapiens
-ENSG00000228037	NA	lncRNA	1	2581560	2584533	+	Homo_sapiens
-ENSG00000142611	PRDM16	protein_coding	1	3069168	3438621	+	Homo_sapiens

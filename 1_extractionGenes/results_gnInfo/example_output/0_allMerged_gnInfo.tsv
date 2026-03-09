@@ -1,5 +1,0 @@
-gene_id	gene_name	gene_biotype	seqname	start	end	strand	species
-ENSCAFG00845015183	NA	protein_coding	X	24550462	24552226	-	Canis_lupus_familiaris
-ENSCAFG00845015195	NA	snoRNA	X	24606240	24606309	-	Canis_lupus_familiaris
-ENSCAFG00845015208	NA	snoRNA	X	24606469	24606548	-	Canis_lupus_familiaris
-ENSCAFG00845015217	NA	processed_pseudogene	X	25161621	25161980	-	Canis_lupus_familiaris
