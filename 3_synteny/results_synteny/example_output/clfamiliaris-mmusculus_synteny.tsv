@@ -1,0 +1,5 @@
+lncRNA.Canis_lupus_familiaris	PCG_left.Canis_lupus_familiaris	PCG_right.Canis_lupus_familiaris	lncRNA_strand.Canis_lupus_familiaris	PCG_left_strand.Canis_lupus_familiaris	PCG_right_strand.Canis_lupus_familiaris	lncRNA_PCG_left_distance.Canis_lupus_familiaris	lncRNA_PCG_right_distance.Canis_lupus_familiaris	lncRNA.Mus_musculus	PCG_left.Mus_musculus	PCG_right.Mus_musculus	lncRNA_strand.Mus_musculus	PCG_left_strand.Mus_musculus	PCG_right_strand.Mus_musculus	lncRNA_PCG_left_distance.Mus_musculus	lncRNA_PCG_right_distance.Mus_musculus	PCG_strandCouple	type
+ENSCAFG00845016152	ENSCAFG00845016119	ENSCAFG00845016215	-	+	+	54495	53510	NA	NA	NA	NA	NA	NA	NA	NA	discordant	one_to_zero
+ENSCAFG00845016362	ENSCAFG00845016215	ENSCAFG00845016407	+	+	-	144952	84873	NA	NA	NA	NA	NA	NA	NA	NA	discordant	one_to_zero
+ENSCAFG00845016442;ENSCAFG00845016461	ENSCAFG00845016176	ENSCAFG00845016493	-;-	-	-	 77573;110674	42630; 9529	NA	NA	NA	NA	NA	NA	NA	NA	discordant	many_to_zero
+ENSCAFG00845016771;ENSCAFG00845016800;ENSCAFG00845016812	ENSCAFG00845016746	ENSCAFG00845016988	+;+;+	-	+	31124;57768;74731	130228;103584; 86621	NA	NA	NA	NA	NA	NA	NA	NA	discordant	many_to_zero

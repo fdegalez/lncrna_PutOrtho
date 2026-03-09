@@ -1,0 +1,5 @@
+#FEELnc Classification
+#lncRNA file :  lncrna : results/Canis_lupus_familiaris.ROS_Cfam_1.0.109_LNCextracted.tmp.gtf 
+#mRNA file : results/Canis_lupus_familiaris.ROS_Cfam_1.0.109_mRNAextracted.tmp.gtf
+#Minimal window size : 10000
+#Maximal window size : 100000

@@ -1,0 +1,5 @@
+lncRNA.Homo_sapiens	lncRNA.Canis_lupus_familiaris	orthology_type.Homo_sapiens.Canis_lupus_familiaris	lncRNA.Mus_musculus	orthology_type.Homo_sapiens.Mus_musculus	nbTotalIndication	profilIndication
+ENSG00000082929	NA	NA	NA	NA	0	NA
+ENSG00000083622	NA	NA	NA	NA	0	NA
+ENSG00000093100	NA	NA	NA	NA	0	NA
+ENSG00000115934	NA	NA	ENSMUSG00000107802;ENSMUSG00000084971;ENSMUSG00000086887	one_to_many	1	one_to_many:1

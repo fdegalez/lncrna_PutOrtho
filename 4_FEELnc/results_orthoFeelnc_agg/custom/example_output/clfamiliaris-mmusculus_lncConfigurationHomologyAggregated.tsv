@@ -1,0 +1,5 @@
+PCG.Canis_lupus_familiaris	conf.Canis_lupus_familiaris	PCG.Mus_musculus	conf.Mus_musculus	lncRNA.Canis_lupus_familiaris	class.Canis_lupus_familiaris	distance.Canis_lupus_familiaris	lncRNA.Mus_musculus	class.Mus_musculus	distance.Mus_musculus	orthology_type.Canis_lupus_familiaris-Mus_musculus
+ENSCAFG00845005970	lincConv	ENSMUSG00000003721	lincConv	ENSCAFG00845005912	n.1.1	17852	ENSMUSG00000101700	1.1.1	76827	one_to_one
+ENSCAFG00845017289	lincConv	ENSMUSG00000005583	lincConv	ENSCAFG00845017881;ENSCAFG00845018016	1.1.1;1.1.1	23726;56847	ENSMUSG00000097265	n.n.1	0	many_to_one
+ENSCAFG00845005752	lincConv	ENSMUSG00000020205	lincConv	ENSCAFG00845005712;ENSCAFG00845027451	1.1.1;1.1.1	12102;54184	ENSMUSG00000097082	1.1.1	78118	many_to_one
+ENSCAFG00845001057	lincConv	ENSMUSG00000020415	lincConv	ENSCAFG00845001039	n.1.1	62128	ENSMUSG00000084889	1.1.1	33067	one_to_one

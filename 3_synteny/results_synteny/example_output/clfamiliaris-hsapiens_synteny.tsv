@@ -1,0 +1,5 @@
+lncRNA.Canis_lupus_familiaris	PCG_left.Canis_lupus_familiaris	PCG_right.Canis_lupus_familiaris	lncRNA_strand.Canis_lupus_familiaris	PCG_left_strand.Canis_lupus_familiaris	PCG_right_strand.Canis_lupus_familiaris	lncRNA_PCG_left_distance.Canis_lupus_familiaris	lncRNA_PCG_right_distance.Canis_lupus_familiaris	lncRNA.Homo_sapiens	PCG_left.Homo_sapiens	PCG_right.Homo_sapiens	lncRNA_strand.Homo_sapiens	PCG_left_strand.Homo_sapiens	PCG_right_strand.Homo_sapiens	lncRNA_PCG_left_distance.Homo_sapiens	lncRNA_PCG_right_distance.Homo_sapiens	PCG_strandCouple	type
+ENSCAFG00845015995	ENSCAFG00845015960	ENSCAFG00845016176	+	+	-	200608	27378	NA	NA	NA	NA	NA	NA	NA	NA	discordant	one_to_zero
+ENSCAFG00845016001	ENSCAFG00845015960	ENSCAFG00845016176	-	+	-	200616	27370	NA	NA	NA	NA	NA	NA	NA	NA	discordant	one_to_zero
+ENSCAFG00845016152	ENSCAFG00845016119	ENSCAFG00845016215	-	+	+	54495	53510	NA	NA	NA	NA	NA	NA	NA	NA	discordant	one_to_zero
+ENSCAFG00845016329	ENSCAFG00845016316	ENSCAFG00845016395	+	+	+	104891	53449	NA	NA	NA	NA	NA	NA	NA	NA	discordant	one_to_zero

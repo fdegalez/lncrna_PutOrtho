@@ -1,0 +1,5 @@
+gene_id	gene_name	gene_biotype	seqname	start	end	strand	species
+ENSMUSG00000104478	Gm38212	TEC	1	108344807	108347562	+	Mus_musculus
+ENSMUSG00000104385	Gm7449	processed_pseudogene	1	6980784	6981446	+	Mus_musculus
+ENSMUSG00000086053	Gm15178	lncRNA	1	75368775	75373007	-	Mus_musculus
+ENSMUSG00000101231	Gm28283	processed_pseudogene	1	108540067	108540244	-	Mus_musculus

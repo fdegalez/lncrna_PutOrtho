@@ -1,0 +1,5 @@
+X	ensembl	gene	25190730	25192555	.	+	.	gene_id "ENSCAFG00845015230"; gene_version "1"; gene_source "ensembl"; gene_biotype "lncRNA";
+X	ensembl	transcript	25190730	25192555	.	+	.	gene_id "ENSCAFG00845015230"; gene_version "1"; transcript_id "ENSCAFT00845027174"; transcript_version "1"; gene_source "ensembl"; gene_biotype "lncRNA"; transcript_source "ensembl"; transcript_biotype "lncRNA"; tag "Ensembl_canonical";
+X	ensembl	exon	25190730	25192555	.	+	.	gene_id "ENSCAFG00845015230"; gene_version "1"; transcript_id "ENSCAFT00845027174"; transcript_version "1"; exon_number "1"; gene_source "ensembl"; gene_biotype "lncRNA"; transcript_source "ensembl"; transcript_biotype "lncRNA"; exon_id "ENSCAFE00845128970"; exon_version "1"; tag "Ensembl_canonical";
+X	ensembl	gene	25190731	25192555	.	-	.	gene_id "ENSCAFG00845015240"; gene_version "1"; gene_source "ensembl"; gene_biotype "lncRNA";
+X	ensembl	transcript	25190731	25192555	.	-	.	gene_id "ENSCAFG00845015240"; gene_version "1"; transcript_id "ENSCAFT00845027191"; transcript_version "1"; gene_source "ensembl"; gene_biotype "lncRNA"; transcript_source "ensembl"; transcript_biotype "lncRNA"; tag "Ensembl_canonical";

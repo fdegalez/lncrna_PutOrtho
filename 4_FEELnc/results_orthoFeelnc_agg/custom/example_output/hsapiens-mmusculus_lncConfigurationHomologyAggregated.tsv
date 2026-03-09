@@ -1,0 +1,5 @@
+PCG.Homo_sapiens	conf.Homo_sapiens	PCG.Mus_musculus	conf.Mus_musculus	lncRNA.Homo_sapiens	class.Homo_sapiens	distance.Homo_sapiens	lncRNA.Mus_musculus	class.Mus_musculus	distance.Mus_musculus	orthology_type.Homo_sapiens-Mus_musculus
+ENSG00000119866	lincConv	ENSMUSG00000000861	lincConv	ENSG00000287640	1.1.1	64726	ENSMUSG00000086117	1.1.1	24614	one_to_one
+ENSG00000198668	lincConv	ENSMUSG00000001175	lincConv	ENSG00000258678	n.1.1	43795	ENSMUSG00000113362	n.1.1	27940	one_to_one
+ENSG00000105173	lincConv	ENSMUSG00000002068	lincConv	ENSG00000286538	1.1.1	14220	ENSMUSG00000108334	1.1.1	21883	one_to_one
+ENSG00000117676	lincConv	ENSMUSG00000003644	lincConv	ENSG00000289452	1.1.1	45677	ENSMUSG00000084789	1.1.1	29676	one_to_one

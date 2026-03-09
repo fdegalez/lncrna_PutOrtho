@@ -1,0 +1,5 @@
+PCG.Homo_sapiens	lncRNA.Homo_sapiens	conf.Homo_sapiens	class.Homo_sapiens	distance.Homo_sapiens	PCG.Canis_lupus_familiaris	lncRNA.Canis_lupus_familiaris	conf.Canis_lupus_familiaris	class.Canis_lupus_familiaris	distance.Canis_lupus_familiaris
+ENSG00000002587	ENSG00000251152	lincDivg	1.1.1	39686	ENSCAFG00845002386	ENSCAFG00845002373	lincDivg	1.1.1	19244
+ENSG00000002587	ENSG00000287778	lncgDivg	n.n.1	0	ENSCAFG00845002386	ENSCAFG00845002377	lncgDivg	1.1.1	3452
+ENSG00000002746	ENSG00000232006	lncgDivg	n.n.n	0	ENSCAFG00845017152	ENSCAFG00845017845	lncgDivg	1.1.1	960
+ENSG00000002746	ENSG00000228680	lncgDivg	n.1.1	0	ENSCAFG00845017152	ENSCAFG00845017845	lncgDivg	1.1.1	960

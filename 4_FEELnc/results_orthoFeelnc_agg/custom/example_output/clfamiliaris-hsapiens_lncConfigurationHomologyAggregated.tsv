@@ -1,0 +1,5 @@
+PCG.Canis_lupus_familiaris	conf.Canis_lupus_familiaris	PCG.Homo_sapiens	conf.Homo_sapiens	lncRNA.Canis_lupus_familiaris	class.Canis_lupus_familiaris	distance.Canis_lupus_familiaris	lncRNA.Homo_sapiens	class.Homo_sapiens	distance.Homo_sapiens	orthology_type.Canis_lupus_familiaris-Homo_sapiens
+ENSCAFG00845020085	lincConv	ENSG00000011198	lincConv	ENSCAFG00845020052	1.1.1	55277	ENSG00000235886	1.1.1	44590	one_to_one
+ENSCAFG00845030187	lincConv	ENSG00000065802	lincConv	ENSCAFG00845030252	1.1.1	97404	ENSG00000225493	1.1.1	58440	one_to_one
+ENSCAFG00845003083	lincConv	ENSG00000067082	lincConv	ENSCAFG00845003150	1.1.1	30866	ENSG00000229672;ENSG00000228353	n.1.1;1.1.1	12284;7245	one_to_many
+ENSCAFG00845024331	lincConv	ENSG00000072657	lincConv	ENSCAFG00845024674	1.1.1	5231	ENSG00000258235	1.1.1	57165	one_to_one

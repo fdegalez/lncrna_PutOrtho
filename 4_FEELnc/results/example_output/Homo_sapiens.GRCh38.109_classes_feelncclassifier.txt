@@ -1,0 +1,5 @@
+isBest	lncRNA_gene	lncRNA_transcript	partnerRNA_gene	partnerRNA_transcript	direction	type	distance	subtype	location
+1	ENSG00000225313	ENST00000587696	ENSG00000134686	ENST00000485928	antisense	genic	0	overlapping	exonic
+0	ENSG00000225313	ENST00000587696	ENSG00000134686	ENST00000431992	antisense	genic	0	overlapping	intronic
+0	ENSG00000225313	ENST00000587696	ENSG00000134686	ENST00000706360	antisense	genic	0	overlapping	intronic
+0	ENSG00000225313	ENST00000587696	ENSG00000134686	ENST00000473158	antisense	intergenic	5461	convergent	downstream

@@ -1,0 +1,5 @@
+#FEELnc Classification
+#lncRNA file :  lncrna : results/Homo_sapiens.GRCh38.109_LNCextracted.tmp.gtf 
+#mRNA file : results/Homo_sapiens.GRCh38.109_mRNAextracted.tmp.gtf
+#Minimal window size : 10000
+#Maximal window size : 100000

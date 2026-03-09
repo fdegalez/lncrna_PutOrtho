@@ -5,38 +5,34 @@
 !**/.gitkeep
 
 # ignore results of orthology (2_extractionOrthologyPCG)
-2_extractionOrthologyPCG/results/*
-!2_extractionOrthologyPCG/results/.gitkeep
+2_extractionOrthologyPCG/**
+!2_extractionOrthologyPCG/**/
+!2_extractionOrthologyPCG/**/example_output/**
+!**/.gitkeep
 
 # ignore results of synteny (3_synteny)
-3_synteny/results_table/*
-!3_synteny/results_table/.gitkeep
-3_synteny/results_synteny/*
-!3_synteny/results_synteny/.gitkeep
-3_synteny/results_syntenyMerged/*
-!3_synteny/results_syntenyMerged/.gitkeep
+3_synteny/**
+!3_synteny/**/
+!3_synteny/**/example_output/**
+!**/.gitkeep
 
 # ignore results of FEELnc (4_FEELnc)
-4_FEELnc/results/**
-4_FEELnc/results_geneLevel/**
-4_FEELnc/results_orthoFeelnc/**
-4_FEELnc/results_orthoFeelnc_agg/**
-4_FEELnc/results_orthoFeelnc_merged/**
-!4_FEELnc/**/.gitkeep
+4_FEELnc/**
+!4_FEELnc/**/
+!4_FEELnc/**/example_output/**
+!**/.gitkeep
+
 
 
 # ignore results of 5_compara
-5_compara/results_raw/**
-5_compara/input_formatted/**
-5_compara/results_isMatching/**
+5_compara/**
+!5_compara/**/
+!5_compara/**/example_output/**
+!**/.gitkeep
 
-!5_compara/results_raw/example_output/**
-!5_compara/input_formatted/example_output/**
-!5_compara/results_isMatching/example_output/**
-
-!5_compara/**/.gitkeep
 
 # ignore results of 6_summary
 6_summary/**
 !6_summary/**/
 !6_summary/**/example_output/**
+!**/.gitkeep

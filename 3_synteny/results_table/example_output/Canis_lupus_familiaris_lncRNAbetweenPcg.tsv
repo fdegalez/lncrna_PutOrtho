@@ -1,0 +1,5 @@
+lncRNA.Canis_lupus_familiaris	PCG_left.Canis_lupus_familiaris	PCG_right.Canis_lupus_familiaris	lncRNA_strand.Canis_lupus_familiaris	PCG_left_strand.Canis_lupus_familiaris	PCG_right_strand.Canis_lupus_familiaris	lncRNA_PCG_left_distance.Canis_lupus_familiaris	lncRNA_PCG_right_distance.Canis_lupus_familiaris
+ENSCAFG00845015230	ENSCAFG00845015183	ENSCAFG00845015261	+	-	+	640268	149649
+ENSCAFG00845015240	ENSCAFG00845015183	ENSCAFG00845015261	-	-	+	640269	149648
+ENSCAFG00845015303	ENSCAFG00845015297	ENSCAFG00845015457	+	+	+	163718	244369
+ENSCAFG00845015316	ENSCAFG00845015297	ENSCAFG00845015457	-	+	+	173030	235057
