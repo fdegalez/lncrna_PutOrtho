@@ -29,8 +29,18 @@
 5_compara/results_raw/**
 5_compara/input_formatted/**
 5_compara/results_isMatching/**
+
+!5_compara/results_raw/example_output/**
+!5_compara/input_formatted/example_output/**
+!5_compara/results_isMatching/example_output/**
+
 !5_compara/**/.gitkeep
 
 # ignore results of 6_summary
-6_summary//*
+6_summary/all/**
+6_summary/pairwise/**
+
+
+!6_summary/all/example_output/**
+!6_summary/pairwise/example_output/**
 !6_summary/**/.gitkeep
