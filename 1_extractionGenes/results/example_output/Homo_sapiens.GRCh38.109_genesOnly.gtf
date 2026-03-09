@@ -1,0 +1,5 @@
+1	ensembl_havana	gene	1471765	1497848	.	+	.	gene_id "ENSG00000160072"; gene_version "20"; gene_name "ATAD3B"; gene_source "ensembl_havana"; gene_biotype "protein_coding";
+1	havana	gene	182696	184174	.	+	.	gene_id "ENSG00000279928"; gene_version "2"; gene_name "DDX11L17"; gene_source "havana"; gene_biotype "unprocessed_pseudogene";
+1	havana	gene	2581560	2584533	.	+	.	gene_id "ENSG00000228037"; gene_version "1"; gene_source "havana"; gene_biotype "lncRNA";
+1	ensembl_havana	gene	3069168	3438621	.	+	.	gene_id "ENSG00000142611"; gene_version "17"; gene_name "PRDM16"; gene_source "ensembl_havana"; gene_biotype "protein_coding";
+1	havana	gene	5301928	5307394	.	-	.	gene_id "ENSG00000284616"; gene_version "1"; gene_source "havana"; gene_biotype "lncRNA";

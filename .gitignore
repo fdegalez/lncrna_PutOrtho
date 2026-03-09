@@ -1,8 +1,8 @@
 # ignore results of gene extraction (1_extractionGenes)
-1_extractionGenes/results/*
-1_extractionGenes/results_gnInfo/*
-!1_extractionGenes/results/.gitkeep
-!1_extractionGenes/results_gnInfo/.gitkeep
+1_extractionGenes/**
+!1_extractionGenes/**/
+!1_extractionGenes/**/example_output/**
+!**/.gitkeep
 
 # ignore results of orthology (2_extractionOrthologyPCG)
 2_extractionOrthologyPCG/results/*
@@ -37,10 +37,6 @@
 !5_compara/**/.gitkeep
 
 # ignore results of 6_summary
-6_summary/all/**
-6_summary/pairwise/**
-
-
-!6_summary/all/example_output/**
-!6_summary/pairwise/example_output/**
-!6_summary/**/.gitkeep
+6_summary/**
+!6_summary/**/
+!6_summary/**/example_output/**

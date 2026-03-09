@@ -1,0 +1,5 @@
+1	havana	gene	108344807	108347562	.	+	.	gene_id "ENSMUSG00000104478"; gene_version "2"; gene_name "Gm38212"; gene_source "havana"; gene_biotype "TEC";
+1	havana	gene	6980784	6981446	.	+	.	gene_id "ENSMUSG00000104385"; gene_version "2"; gene_name "Gm7449"; gene_source "havana"; gene_biotype "processed_pseudogene";
+1	havana	gene	75368775	75373007	.	-	.	gene_id "ENSMUSG00000086053"; gene_version "2"; gene_name "Gm15178"; gene_source "havana"; gene_biotype "lncRNA";
+1	havana	gene	108540067	108540244	.	-	.	gene_id "ENSMUSG00000101231"; gene_version "2"; gene_name "Gm28283"; gene_source "havana"; gene_biotype "processed_pseudogene";
+1	havana	gene	6986783	6993812	.	+	.	gene_id "ENSMUSG00000102135"; gene_version "2"; gene_name "Gm37108"; gene_source "havana"; gene_biotype "processed_pseudogene";
