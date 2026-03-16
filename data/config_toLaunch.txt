@@ -1,4 +1,0 @@
-shortName	ensemblName	completeName	pathToGTF
-human	hsapiens	Homo_sapiens	/home/fabien/Rocco/0_referenceFiles/human_HSA/GRCh38.p13/02_genomeAnnotation/Homo_sapiens.GRCh38.109.gtf
-mouse	mmusculus	Mus_musculus	/home/fabien/Rocco/0_referenceFiles/mouse_MMU/GRCm39/02_genomeAnnotation/Mus_musculus.GRCm39.109.gtf 
-dog	clfamiliaris	Canis_lupus_familiaris	/home/fabien/Rocco/0_referenceFiles/dog_CLF/ROS_Cfam_1.0/02_genomeAnnotation/Canis_lupus_familiaris.ROS_Cfam_1.0.109.gtf
