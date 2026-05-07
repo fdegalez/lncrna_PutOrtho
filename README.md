@@ -1,14 +1,14 @@
 # lncRNA Orthology Inference Pipeline
 
-
-
 - [Overview](#overview)
 - [Repository Structure](#repository-structure)
 - [Pipeline Overview](#pipeline-overview)
 - [Requirements / Software Dependencies](#requirements--software-dependencies)
-  - [R](#r)
-  - [Perl](#perl)
-  - [FEELnc](#feelnc)
+  - [Conda environment](#conda-environment)
+  - [Dependancies](#dependancies)
+    - [R](#r)
+    - [Perl](#perl)
+    - [FEELnc](#feelnc)
 - [Input Data](#input-data)
   - [Test dataset](#test-dataset)
   - [Species configuration file](#species-configuration-file)
@@ -100,7 +100,33 @@ Each module then can be executed independently or through the global pipeline sc
 
 # Requirements / Software Dependencies
 
-## R
+
+## Conda environment
+
+To facilitate installation and reproducibility across different computational environments, a Conda environment file (`environment.yml`) is provided with the repository.
+
+We strongly recommend using this environment to install the main dependencies required by the workflow.
+
+Environment creation:
+```bash
+conda env create -f environment.yml
+conda activate lncRNA_orthology_workflow
+```
+
+The Conda environment installs the main required dependencies including:
+
+* R and required R packages
+* Perl / BioPerl
+* common command-line utilities
+
+Caution :
+- The Ensembl Perl API required for the Compara-based analyses still requires a dedicated installation and Perl module configuration (see below).
+- FEELnc is required for the genomic context classification step : Due to current dependency conflicts between the Bioconda FEELnc package and recent BioPerl/Perl versions, FEELnc is not included in the main Conda environment. Users should install FEELnc separately following the official instructions or use an existing local installation.
+
+
+## Dependancies
+
+### R
 
 Minimum version:
     [R](https://cran.r-project.org/) ≥ 4.0
@@ -115,7 +141,7 @@ Required R packages:
 
 
 
-## Perl
+### Perl
 
 Required for the Ensembl API.
     [Perl5+](https://www.perl.org/) ≥ 5.32
@@ -125,9 +151,23 @@ Required modules:
     - [Bioperl](http://www.bioperl.org/wiki/Main_Page) : tested with version 1.7.8  
     - [TimeHiRes](https://metacpan.org/pod/Time::HiRes) : tested with version 1.9764      
 
+### Ensembl Perl API installation
+
+The Compara-based analyses require the Ensembl Perl API and the availability of:
+
+```perl
+use Bio::EnsEMBL::Registry;
+```
+The Ensembl Perl API follows the official Ensembl installation procedure: https://www.ensembl.org/info/docs/api/api_installation.html
+Users must ensure that the Ensembl Perl modules are accessible through PERL5LIB.
+
+Example:
+```bash
+export PERL5LIB=/path/to/ensembl/modules:/path/to/ensembl-compara/modules:$PERL5LI
+```
 
 
-## FEELnc
+### FEELnc
 
 Used for genomic context classification of lncRNAs.
 
@@ -137,6 +177,7 @@ Repository:
     - [FEELnc_classifier.pl](https://github.com/tderrien/FEELnc#3--feelnc_classifierpl) : Classify lncRNAs based on their genomic localization with others transcripts.
     - [FEELnc_tpLevel2gnLevelClassifcation.R](https://github.com/tderrien/FEELnc/blob/master/scripts/FEELnc_tpLevel2gnLevelClassification.R) : Transformation of transcript-level configurations to gene-level models. 
 
+P.S : Due to current dependency conflicts between the Bioconda FEELnc package and recent BioPerl/Perl versions, FEELnc is not included in the main Conda environment. Users should install FEELnc separately following the official instructions or use an existing local installation.
 
 
 
@@ -278,8 +319,17 @@ bash 3_synteny/run_synteny.sh data/config.txt
 
 ## 4. FEELnc Genomic Context Orthology
 
-The pipeline assumes that `FEELnc_classifier.pl` is available in the system PATH.
-If this is not the case, the path to the executable must be manually modified in the script: `4_FEELnc/1_extractionFEELnc.sh`
+By default, the workflow assumes that `FEELnc_classifier.pl` is available in the system PATH.
+Users may alternatively define a custom FEELnc executable path through the environment variable:
+```bash
+export FEELNC_CLASSIFIER=/path/to/FEELnc_classifier.pl
+```
+
+Internally, the workflow uses: 
+```bash
+FEELNC_CLASSIFIER=${FEELNC_CLASSIFIER:-FEELnc_classifier.pl}
+```
+Allowing either automatic PATH detection or manual user configuration. If this is not the case, the path to the executable must be manually modified in the script: `4_FEELnc/1_extractionFEELnc.sh`
 
 Directory:
 
